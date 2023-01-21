@@ -1,7 +1,42 @@
 import React from 'react'
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/layout'
 
-export default function writing() {
+
+export default function writing({ data }) {
+  console.log(data)
+
+  const posts = data.allMarkdownRemark.nodes;
+
+
   return (
-    <div>writing</div>
+    <Layout>
+      <div>
+        {posts.map(post => {
+          return (
+            <Link key={post.id} to={`/writing/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
+          )
+        })}
+
+      </div>
+    </Layout>
   )
 }
+
+// export page query
+// this loads into data (somehow)
+
+export const query = graphql`
+query MyQuery {
+  allMarkdownRemark {
+    nodes {
+      frontmatter {
+        slug
+        stack
+        title
+      }
+      id
+    }
+  }
+}
+`

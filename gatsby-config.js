@@ -22,12 +22,17 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/src/blog`,
+        path: `${__dirname}/src/content/blog`,
+      },
+      options: {
+        name: `music`,
+        path: `${__dirname}/src/content/music`,
+      },
+      options: {
+        name: `code`,
+        path: `${__dirname}/src/content/code`,
       },
     },
     {

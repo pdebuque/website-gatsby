@@ -7,8 +7,31 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ actions }) => {
+
+// actions has a method to generate pages
+
+const path = require('path')
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const {data} = await graphql(`query MyQuery {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          slug
+        }
+      }
+    }
+  }`)
+
+  data.allMarkdownRemark.nodes.forEach(node=>{
+    actions.createPage({
+      path: `/writing/${node.frontmatter.slug}`,
+      component: path.resolve('./src/templates/writing-post.js'),
+      context: {slug: node.frontmatter.slug}
+    })
+  })
+
   createPage({
     path: "/using-dsg",
     component: require.resolve("./src/templates/using-dsg.js"),
