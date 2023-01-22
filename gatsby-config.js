@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,14 +23,23 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
         path: `${__dirname}/src/content/blog`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `music`,
         path: `${__dirname}/src/content/music`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `code`,
         path: `${__dirname}/src/content/code`,

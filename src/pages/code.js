@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Layout from '../components/layout'
 
 export default function code() {
 
@@ -14,6 +15,8 @@ export default function code() {
 
 
   return (
-    <div>code</div>
+    <Layout>
+      <div>code</div>
+    </Layout>
   )
 }

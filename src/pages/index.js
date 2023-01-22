@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+import * as styles from '../styles/index.module.css'
 
 const links = [
   {
@@ -72,7 +72,7 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 const IndexPage = () => (
   <Layout>
     <div className={styles.textCenter}>
-      <StaticImage
+      {/* <StaticImage
         src="../images/Paolo_picture_circle.png"
         loading="eager"
         width={200}
@@ -80,7 +80,7 @@ const IndexPage = () => (
         formats={["auto", "webp", "avif"]}
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
-      />
+      /> */}
       <h1>
         welcome to <b>my website</b>
       </h1>
@@ -91,7 +91,7 @@ const IndexPage = () => (
 
 
 
-      <p className={styles.intro}>
+      {/* <p className={styles.intro}>
         <b>Example pages:</b>{" "}
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
@@ -101,9 +101,9 @@ const IndexPage = () => (
         ))}
         <br />
         Edit <code>src/pages/index.js</code> to update this page.
-      </p>
+      </p> */}
     </div>
-    <ul className={styles.list}>
+    {/* <ul className={styles.list}>
       {links.map(link => (
         <li key={link.url} className={styles.listItem}>
           <a
@@ -121,7 +121,7 @@ const IndexPage = () => (
         <a href={`${link.url}${utmParameters}`}>{link.text}</a>
         {i !== moreLinks.length - 1 && <> · </>}
       </React.Fragment>
-    ))}
+    ))} */}
   </Layout>
 )
 
