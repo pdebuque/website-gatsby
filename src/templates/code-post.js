@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 // templates have access to query variables from the gatsby-node create page action
 // e.g., context'
 
-export default function WritingPost({ data }) {
+export default function CodePost({ data }) {
 
   const {html} = data.markdownRemark;
   const {title} = data.markdownRemark.frontmatter;
@@ -25,7 +25,7 @@ export default function WritingPost({ data }) {
 }
 
 export const query = graphql`
-query musicQuery($slug: String) {
+query codeQuery($slug: String) {
   markdownRemark(frontmatter: {slug: {eq: $slug}}) {
     frontmatter {
       slug

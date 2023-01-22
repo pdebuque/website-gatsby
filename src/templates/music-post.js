@@ -6,10 +6,10 @@ import { graphql } from 'gatsby';
 // templates have access to query variables from the gatsby-node create page action
 // e.g., context'
 
-export default function WritingPost({ data }) {
+export default function MusicPost({ data }) {
 
-  const {html} = data.markdownRemark;
-  const {title} = data.markdownRemark.frontmatter;
+  const { html } = data.markdownRemark;
+  const { title } = data.markdownRemark.frontmatter;
   return (
     <Layout>
       <div>
@@ -18,14 +18,14 @@ export default function WritingPost({ data }) {
           {/* <Img fluid = {}/> */}
         </div>
         {/* text from the markdown */}
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   )
 }
 
 export const query = graphql`
-query codeQuery($slug: String) {
+query musicQuery($slug: String) {
   markdownRemark(frontmatter: {slug: {eq: $slug}}) {
     frontmatter {
       slug

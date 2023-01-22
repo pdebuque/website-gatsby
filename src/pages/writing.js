@@ -27,8 +27,8 @@ export default function writing({ data }) {
 // this loads into data (somehow)
 
 export const query = graphql`
-query MyQuery {
-  allMarkdownRemark {
+query writingQuery {
+  allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(blog)/"}}) {
     nodes {
       frontmatter {
         slug

@@ -32,6 +32,24 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  data.allMarkdownRemark.nodes.forEach(node=>{
+    actions.createPage({
+      path: `/music/${node.frontmatter.slug}`,
+      component: path.resolve('./src/templates/music-post.js'),
+      context: {slug: node.frontmatter.slug}
+    })
+  })
+  
+  data.allMarkdownRemark.nodes.forEach(node=>{
+    actions.createPage({
+      path: `/code/${node.frontmatter.slug}`,
+      component: path.resolve('./src/templates/code-post.js'),
+      context: {slug: node.frontmatter.slug}
+    })
+  })
+
+
+
   createPage({
     path: "/using-dsg",
     component: require.resolve("./src/templates/using-dsg.js"),
