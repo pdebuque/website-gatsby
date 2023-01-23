@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
-import {graphql,Link} from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import * as styles from '../styles/music.module.css'
 
 export default function music({ data }) {
   console.log(data);
@@ -9,11 +10,29 @@ export default function music({ data }) {
 
   return (
     <Layout>
-      {musicPosts.map(post => {
-        return(
-          <Link key = {post.id} to = {`/music/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
-        )
-      })}
+      <h1>Music</h1>
+      <ul className={styles.musicProjectList}>
+        {musicPosts.map(post=>{
+          return (
+            <li key = {post.id} className = {styles.listItem}>
+              <h3>{post.frontmatter.title}</h3>
+              <Link to={`/music/${post.frontmatter.slug}`}>see more</Link>
+            </li>
+          )
+        })}
+        <li className = {styles.listItem}>item</li>
+        <li className = {styles.listItem}>item</li>
+        <li className = {styles.listItem}>item</li>
+        <li className = {styles.listItem}>item</li>
+
+      </ul>
+      <div>
+        {musicPosts.map(post => {
+          return (
+            <Link key={post.id} to={`/music/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
+          )
+        })}
+      </div>
     </Layout>
   )
 }
@@ -24,7 +43,6 @@ query musicQuery {
     nodes {
       frontmatter {
         slug
-        stack
         title
       }
       id

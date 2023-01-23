@@ -3,7 +3,11 @@
 
 
 :root {
+  --border-radius: 4px;
   --color-primary: #282fb5;
+  --color-secondary: #E63946;
+  --color-beige: #f1faee;
+  --color-text: #1D3557;
   --font-sans: 'Merriweather Sans';
   --font-serif: 'Merriweather';
   --font-lg: 18px;
@@ -19,6 +23,9 @@
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 64px;
+  --size-content: 54rem;
+  --size-gutter: var(--space-5);
+  --size-gap: var(--space-6);
 }
 
 * {
@@ -26,7 +33,7 @@
   padding: 0;
   text-decoration: none;
   font-family: var(--font-sans);
-  color: rgb(54, 54, 54);
+  color: var(--color-text);
 }
 
 html,body {
@@ -40,7 +47,7 @@ html {
 }
 
 body {
-
+  background-image: url('/Users/pdebuque/Documents/website-gatsby/src/images/black_dots_background.jpeg');
   background-repeat: no-repeat;
 }
 
@@ -65,8 +72,27 @@ a:hover {
 }
 h1 {
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0;
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  margin-bottom: var(--space-4);
+  margin-left: var(--space-4);
+  list-style-position: outside;
+  list-style-image: none;
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: calc(var(--space-4) / 2);
+}
+
+li *:last-child {
+  margin-bottom: 0;
 }

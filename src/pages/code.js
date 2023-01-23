@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '../components/layout';
-import {Link, graphql} from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import CodeCard from '../components/CodeCard';
 
-export default function code({data}) {
+export default function code({ data }) {
 
   const codeSamples = [
     {
@@ -18,9 +19,13 @@ export default function code({data}) {
 
   return (
     <Layout>
+      <h1>coding</h1>
+      <p>
+        Here are some recent projects.
+      </p>
       {codePosts.map(post => {
-        return(
-          <Link key = {post.id} to = {`/music/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
+        return (
+          <CodeCard key={post.id} code={post} />
         )
       })}
     </Layout>
@@ -35,6 +40,10 @@ query codeQuery {
         slug
         stack
         title
+        github
+        url
+        description
+        image
       }
       id
     }

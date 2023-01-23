@@ -1,0 +1,12 @@
+.card {
+  border: 2px solid rgb(0, 0, 99);
+  border-radius: 12px;
+  padding: var(--space-3);
+  margin: var(--space-3) auto;
+}
+
+.card p {
+  font-size: var(--font-sm);
+  font-weight: 100;
+  line-height: var(--line-height-dense);
+}

@@ -19,6 +19,7 @@ const Header = ({ siteTitle }) => {
     margin: '0 8px',
     fontSize: `var(--font-sm)`,
     textDecoration: `none`,
+    fontWeight: 300,
   }
 
   const links = [
@@ -38,7 +39,7 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header style={headerStyle}>
-      <div>paolo debuque</div>
+      <Link to='/' style = {{...linkStyle, fontWeight: '400'}}>paolo debuque</Link>
       <div style={linksStyle}>
         {links.map(link => {
           return (
@@ -52,7 +53,7 @@ const Header = ({ siteTitle }) => {
         })}
         <Link
           to="/"
-          style={{ ...linkStyle, fontWeight: '900' }}
+          style={{ ...linkStyle, fontWeight: '700' }}
         >
           home
         </Link>

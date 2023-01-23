@@ -15,16 +15,21 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const {data} = await graphql(`query MyQuery {
-    allMarkdownRemark {
+    allMarkdownRemark{
       nodes {
         frontmatter {
           slug
+          type
         }
       }
     }
-  }`)
+  }`);
 
-  data.allMarkdownRemark.nodes.forEach(node=>{
+  const musicPosts = data.allMarkdownRemark.nodes.filter(node=>node.type="music");
+  const blogPosts = data.allMarkdownRemark.nodes.filter(node=>node.type = "blog");
+  const codePosts = data.allMarkdownRemark.nodes.filter(node=>node.type = 'code')
+
+  blogPosts.forEach(node=>{
     actions.createPage({
       path: `/writing/${node.frontmatter.slug}`,
       component: path.resolve('./src/templates/writing-post.js'),
@@ -32,15 +37,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  data.allMarkdownRemark.nodes.forEach(node=>{
+  musicPosts.forEach(node=>{
     actions.createPage({
       path: `/music/${node.frontmatter.slug}`,
       component: path.resolve('./src/templates/music-post.js'),
       context: {slug: node.frontmatter.slug}
     })
   })
-  
-  data.allMarkdownRemark.nodes.forEach(node=>{
+
+  codePosts.forEach(node=>{
     actions.createPage({
       path: `/code/${node.frontmatter.slug}`,
       component: path.resolve('./src/templates/code-post.js'),

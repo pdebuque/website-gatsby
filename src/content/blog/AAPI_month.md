@@ -2,6 +2,7 @@
 title: AAPI month
 stack: HTML & CSS
 slug: aapi-month
+type: blog
 date: 
 thumb: 
 featuredImg: 

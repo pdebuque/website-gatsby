@@ -1,5 +1,6 @@
 ---
 title: sample blog post
+type: blog
 stack: HTML & CSS
 slug: sample-blog-post
 ---
