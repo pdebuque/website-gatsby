@@ -24,6 +24,9 @@ const Header = ({ siteTitle }) => {
 
   const links = [
     {
+      name: 'about'
+    },
+    {
       name: 'music'
     },
     {
@@ -31,9 +34,6 @@ const Header = ({ siteTitle }) => {
     },
     {
       name: 'writing'
-    },
-    {
-      name: 'contact'
     },
   ]
 

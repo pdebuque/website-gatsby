@@ -30,7 +30,7 @@ const IndexPage = () => (
         loading="eager"
         width={200}
         quality={95}
-        formats={["auto", "webp", "avif"]}
+        formats={["auto", "webp", "avif", "png"]}
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
       />
