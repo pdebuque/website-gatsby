@@ -4,7 +4,9 @@ import Layout from '../components/layout'
 export default function about() {
   return (
     <Layout>
-      <div>about</div>
+      <div>
+        about
+      </div>
     </Layout>
   )
 }
