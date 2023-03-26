@@ -42,8 +42,7 @@ const Layout = ({ children }) => {
             textAlign: 'center'
           }}
         >
-          © {new Date().getFullYear()} &middot; Paolo Debuque &middot; Built with
-          {` `}
+          © {new Date().getFullYear()} &middot; Paolo Debuque &middot; Built with&nbsp;
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>

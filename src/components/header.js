@@ -22,26 +22,26 @@ const Header = ({ siteTitle }) => {
     fontWeight: 300,
   }
 
-  const links = [
-    {
-      name: 'about'
-    },
-    {
-      name: 'music'
-    },
-    {
-      name: 'code'
-    },
-    {
-      name: 'writing'
-    },
-  ]
+  // const links = [
+  //   {
+  //     name: 'about'
+  //   },
+  //   {
+  //     name: 'music'
+  //   },
+  //   {
+  //     name: 'code'
+  //   },
+  //   {
+  //     name: 'writing'
+  //   },
+  // ]
 
   return (
     <header style={headerStyle}>
-      <Link to='/' style = {{...linkStyle, fontWeight: '400'}}>paolo debuque</Link>
+      {/* <Link to='/' style = {{...linkStyle, fontWeight: '400'}}>paolo debuque</Link> */}
       <div style={linksStyle}>
-        {links.map(link => {
+        {/* {links.map(link => {
           return (
             <Link
               to={`/${link.name}`}
@@ -50,7 +50,7 @@ const Header = ({ siteTitle }) => {
               {link.name}
             </Link>
           )
-        })}
+        })} */}
         <Link
           to="/"
           style={{ ...linkStyle, fontWeight: '700' }}
