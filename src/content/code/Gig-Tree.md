@@ -8,3 +8,13 @@ description: Desktop web app for creating, managing, and sharing classical music
 type: code
 image: /Users/pdebuque/Documents/website-gatsby/src/content/code/Gig-Tree.md
 ---
+
+### lessons learned
+- database structure
+- importance of wireframes
+- dates and times - use a library! have since learned luxon
+- some lessons about code organization
+
+### do differently
+- assets and reusable components
+  - identify early which components would be widely used. e.g. collaborator card

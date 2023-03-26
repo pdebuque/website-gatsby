@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from '../styles/index.module.css'
+import Logo from "../components/logo"
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
@@ -25,15 +26,16 @@ const socialLogos = [
 const IndexPage = () => (
   <Layout>
     <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/Paolo_picture_circle.png"
+      {/* <StaticImage
+        src="../images/paolo-face-icon.svg"
         loading="eager"
         width={200}
         quality={95}
         formats={["auto", "webp", "avif", "png"]}
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
-      />
+      /> */}
+      <Logo />
       <h1>
         welcome to <b>my website</b>
       </h1>
