@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-import { useWindowSize } from '../hooks/useWindowSize';
+// import { useWindowSize } from '../hooks/useWindowSize';
+
+import LogoControls from './LogoControls';
+
+import { LogoColorsInt, RectInt } from '../model';
 
 const Logo = () => {
 
-  const window = useWindowSize();
-  console.log(window)
+  // const window = useWindowSize();
+  // console.log(window)
 
-  const [logoColors, setLogoColors] = useState({
+  //* ================= logo controls ================= *//
+  const [logoColors, setLogoColors] = useState<LogoColorsInt>({
     skin: '#fff',
     lens: '#fff',
     hair: '#000',
@@ -17,60 +22,53 @@ const Logo = () => {
     buttons: '#d5d5d5'
   })
 
-  const [skinColor, setSkinColor] = useState('#fff');
-  const [lensColor, setLensColor] = useState('#fff');
-  const [hairColor, setHairColor] = useState('#000');
-  const [frameColor, setFrameColor] = useState('#000');
-  const [shirtColor, setShirtColor] = useState('rgb(85, 80, 92)');
-  const [trimColor, setTrimColor] = useState("rgb(70, 66, 76)")
+  const handleFaceClick = () => {
+    console.log('clicked face')
+    setLogoColors({ ...logoColors, frame: randomDarkColor() })
+  }
 
-  const [rects, setRects] = useState([
+  const handleShirtClick = () => {
+    setLogoColors({ ...logoColors, shirt: randomDarkColor(), trim: randomDarkColor() })
+  }
+
+  //* =================== rectangle controls ====================== *//
+  const [rects, setRects] = useState<RectInt[]>([
     {
       id: 1,
-      x: 20,
-      y: 60,
-      width: 200,
-      height: 300,
+      x: 40,
+      y: 40,
+      width: 220,
+      height: 280,
       color: randomLightColor()
     },
     {
       id: 2,
-      x: 100,
+      x: 70,
       y: 200,
-      width: 350,
+      width: 360,
       height: 200,
       color: randomLightColor()
     },
     {
       id: 3,
-      x: 300,
+      x: 260,
       y: 100,
       width: 200,
-      height: 230,
+      height: 250,
       color: randomLightColor()
     },
-
   ])
 
-  const handleClick = (id) => {
+  const handleRectClick = (id: number) => {
     console.log('click')
     const rectToChange = rects.filter(rect => rect.id === id)[0];
     rectToChange.color = randomLightColor();
     setRects([...rects.filter(rect => rect.id != id), rectToChange])
   }
 
-  const handleFaceClick = () => {
-    console.log('clicked face')
-    setLogoColors({...logoColors, frame: randomDarkColor()})
-  }
+  //todo: rectangle drag functionality
 
-  const handleShirtClick = () => {
-    setLogoColors({...logoColors, shirt: randomDarkColor(), trim: randomDarkColor()})
-  }
-
-  const calcTrim = (hex) => {
-
-  }
+  //* ================== utility ================== *//
 
   function randomLightColor() {
     const r = Math.floor(Math.random() * (154)) + 100;
@@ -89,18 +87,51 @@ const Logo = () => {
   }
 
   return (
-    <div id='logo'>
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width='500' viewBox={`0 0 500 500`}
-        preserveAspectRatio="xMidYMid meet">
+    <div id='logo-div'>
+      {/* <LogoControls logoColors={logoColors} setLogoColors={setLogoColors} rects={rects} setRects={setRects} /> */}
+
+      <svg version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width='500'
+        viewBox={`0 0 500 500`}
+        preserveAspectRatio="xMidYMid meet"
+        fill="#000"
+      >
 
         <g>
+
+          <mask id = 'mask'>
+            {/* background and mask */}
+            <rect
+              width='1000'
+              height='1000'
+              fill='black'
+            />
+            <circle
+              cx='250'
+              cy='250'
+              r='230'
+              fill='white'
+            />
+          </mask>
+
+        </g>
+        <g>
           {rects.map(rect => {
-            return <rect key={rect.id} width={rect.width} height={rect.height} transform={`translate(${rect.x}, ${rect.y})`} fill={rect.color} stroke='none' onClick={() => handleClick(rect.id)} />
+            return (
+              <rect
+                key={rect.id}
+                width={rect.width}
+                height={rect.height}
+                transform={`translate(${rect.x}, ${rect.y})`}
+                fill={rect.color}
+                stroke='none'
+                onClick={() => handleRectClick(rect.id)}
+              />
+            )
           })}
         </g>
-
-        <g transform={`translate(0,0)`}
+        <g transform={`translate(0,50)`}
           fill="#000000" stroke="none">
           {/*
             //* ================ FACE ================= *
@@ -203,7 +234,7 @@ const Logo = () => {
             <path fill={logoColors.buttons} stroke="rgb(0, 0, 0)" d="M 221.588 351.757 C 221.588 351.757 217.925 351.137 217.737 355.631 C 217.565 359.739 221.303 359.859 221.303 359.859 C 221.303 359.859 225.518 360.369 225.492 355.625 C 225.47 351.629 221.588 351.757 221.588 351.757 Z" />
 
             {/* 9. top button */}
-            <path stroke={logoColors.buttons} fill="rgb(213, 213, 213)" d="M 227.714 341.939 C 227.714 341.939 228.06 340.586 229.08 339.903 C 230.31 339.079 231.396 339.357 232.336 339.685 C 234.325 340.38 236.162 342.915 236.162 342.915 C 236.162 342.915 237.643 345.79 236.013 347.288 C 233.807 349.315 231.938 348.144 231.63 347.986 C 230.532 347.423 228.664 346.603 227.93 344.664 C 227.196 342.725 227.714 341.939 227.714 341.939 Z" />
+            <path fill={logoColors.buttons} stroke='rgb(0,0,0)' d="M 227.714 341.939 C 227.714 341.939 228.06 340.586 229.08 339.903 C 230.31 339.079 231.396 339.357 232.336 339.685 C 234.325 340.38 236.162 342.915 236.162 342.915 C 236.162 342.915 237.643 345.79 236.013 347.288 C 233.807 349.315 231.938 348.144 231.63 347.986 C 230.532 347.423 228.664 346.603 227.93 344.664 C 227.196 342.725 227.714 341.939 227.714 341.939 Z" />
 
             {/* 10. bottom button */}
             <path fill={logoColors.buttons} stroke="rgb(0, 0, 0)" d="M 239.98 375.748 C 241.114 374.68 242.985 374.254 244.507 374.587 C 245.954 374.903 247.297 376.06 247.957 377.386 C 248.685 378.847 248.794 380.789 248.129 382.279 C 247.573 383.525 246.324 384.619 244.99 384.904 C 243.666 385.187 242.163 384.612 241.08 383.799 C 239.854 382.878 238.833 381.419 238.644 379.897 C 238.465 378.455 238.922 376.744 239.98 375.748 Z" />

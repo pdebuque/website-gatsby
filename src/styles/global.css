@@ -6,6 +6,7 @@
   --color-secondary: #E63946;
   --color-beige: #f1faee;
   --color-text: #1D3557;
+  --color-bg: #faf3e0;
   --font-sans: 'Merriweather Sans';
   --font-serif: 'Merriweather';
   --font-lg: 18px;
@@ -32,6 +33,7 @@
   text-decoration: none;
   font-family: var(--font-sans);
   color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 html,body {
@@ -47,6 +49,7 @@ html {
 body {
   background-image: url('/Users/pdebuque/Documents/website-gatsby/src/images/black_dots_background.jpeg');
   background-repeat: no-repeat;
+  /* padding: var(--space-5) 0 0 0 */
 }
 
 p {
@@ -68,6 +71,11 @@ a:hover {
   outline-width: 0;
   text-decoration: none;
 }
+
+#logo-div {
+  /* background-color: var(--color-primary) */
+}
+
 h1 {
   margin: 0;
   margin-bottom: 1rem;
