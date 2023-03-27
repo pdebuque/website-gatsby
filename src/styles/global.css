@@ -36,7 +36,8 @@
   background-color: var(--color-bg);
 }
 
-html,body {
+html,
+body {
   min-height: 100%;
 }
 
@@ -44,17 +45,38 @@ html {
   font-size: var(--font-md);
   line-height: var(--line-height-normal);
   overflow-y: scroll;
+  
+
 }
 
 body {
   background-image: url('/Users/pdebuque/Documents/website-gatsby/src/images/black_dots_background.jpeg');
   background-repeat: no-repeat;
+  
   /* padding: var(--space-5) 0 0 0 */
+}
+
+main {
+  width: calc(var(--size-content));
+  margin: auto;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
 }
 
 p {
   margin: 16px auto;
   line-height: var(--line-height-normal);
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: var(--font-sx);
+  background-color: var(--color-beige);
+  padding: calc(var(--font-sx)/4) calc(var(--font-sx));
+  margin: 0 2px;
+  border-radius: 4px;
+  border: 2px solid rgb(217, 217, 217);
+  text-overflow: ellipsis;
 }
 
 a {
@@ -66,6 +88,7 @@ a {
   text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
 }
+
 a:active,
 a:hover {
   outline-width: 0;

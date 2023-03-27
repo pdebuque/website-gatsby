@@ -50,12 +50,27 @@
 
 
 */
-.textCenter {
+.front {
   text-align: center;
+  margin-bottom: 64px;
 }
 
 .intro {
   max-width: 40%;
   min-width: 25rem;
   line-height: var(--line-height-loose);
-} 
+}
+
+.projectContainer {}
+
+.projectContainer {
+  margin: .5rem;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+}
+
+.projectList {
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 1fr 3fr 8fr 1fr;
+}

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -9,7 +9,7 @@ import Logo from "../components/logo"
 import CodeListItem from '../components/CodeListItem'
 import BlogListItem from '../components/BlogListItem'
 
-import {codePosts} from '../content/_code';
+import { codePosts } from '../content/_code';
 
 // const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
@@ -32,10 +32,17 @@ const containerStyle: React.CSSProperties = {
 }
 
 
-const IndexPage = () => (
-  // <Layout>
-  <div className={styles.textCenter}>
-    {/* <StaticImage
+
+const IndexPage = () => {
+
+  const [codeBlurbShow, setCodeBlurbShow] = useState(false)
+
+  return (
+
+    // <Layout>
+    <>
+      <div className={styles.front}>
+        {/* <StaticImage
         src="../images/paolo-face-icon.svg"
         loading="eager"
         width={200}
@@ -44,34 +51,45 @@ const IndexPage = () => (
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
       /> */}
-    <Logo />
-    <h1>
-      welcome to my website
-    </h1>
-    <p className={styles.intro}>
-      My name is Paolo Debuque.
-      I am a musician, software engineer, and occasional writer based in Minneapolis, MN.
-    </p>
-
-    <div id="projects">
-      <div style = {containerStyle} className='project-container' id="code-container">
-        <h3>some coding projects</h3>
-{codePosts.map((post,i)=>{
-  return <CodeListItem key = {i} code = {post}/>
-})}
+        <Logo />
+        <h1>
+          Paolo Debuque
+        </h1>
+        <h2 style = {{fontWeight: 400}}><i>/ pow-loe de-boo-keh</i> // he/him</h2>
+        <p className={styles.intro}>
+          I am a musician, software engineer, and occasional writer based in Minneapolis, MN.
+        </p>
       </div>
+      <main>
+        <div className={styles.projectContainer} id="code-container">
+          <div>
+            <button
+              onClick={() => setCodeBlurbShow(!codeBlurbShow)}
+            >expand</button>
+          </div>
+          <div>
+            <h3>some code</h3>
+          </div>
+          <div style={{ display: 'grid', gridColumn: '1/-1', textAlign: 'left' }}>
+            <p >some stuff i've worked on, in various stages of completion</p>
+          </div>
+          <div className={styles.projectList}>
+            {codePosts.map((post, i) => {
+              return <CodeListItem key={i} code={post} />
+            })}
+          </div>
+        </div>
 
-
-      <div className='project-container' id="blog-container">
-        <h3>some thinking projects</h3>
-      </div>
-    </div>
-
-  </div>
-
-  // </Layout>
-)
-
+<hr/>
+        <div className={styles.projectContainer} id="blog-container">
+          <div><button>expand</button></div>
+          <h3>some thoughts</h3>
+        </div>
+      </main>
+    </>
+    // </Layout>
+  )
+}
 /**
  * Head export to define metadata for the page
  *
