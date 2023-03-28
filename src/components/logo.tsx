@@ -22,11 +22,14 @@ const Logo = () => {
     buttons: '#d5d5d5'
   })
 
-  const [eyePos, setEyePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
+  const eyeD = 3; // constant for magnitude of eye movements
+  const [svgMousePos, setSvgMousePos] = useState({ x: 0, y: 0 })
+  const [eyeAdjLeft, setEyeAdjLeft] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
+  const [eyeAdjRight, setEyeAdjRight] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
   const [mouseIn, setMouseIn] = useState<boolean>(false)
 
   const handleFaceClick = () => {
-    console.log('clicked face')
+    // console.log('clicked face')
     setLogoColors({ ...logoColors, frame: randomDarkColor() })
   }
 
@@ -42,15 +45,15 @@ const Logo = () => {
       y: 40,
       width: 220,
       height: 280,
-      color: randomLightColor()
+      color: '#c8c8c8'
     },
     {
       id: 2,
       x: 70,
       y: 200,
       width: 360,
-      height: 200,
-      color: randomLightColor()
+      height: 230,
+      color: '#ddd'
     },
     {
       id: 3,
@@ -58,17 +61,92 @@ const Logo = () => {
       y: 100,
       width: 200,
       height: 250,
-      color: randomLightColor()
+      color: '#eee'
     },
   ])
 
   const handleRectClick = (id: number) => {
-    console.log('click')
+    // console.log('click')
     const rectToChange = rects.filter(rect => rect.id === id)[0];
     rectToChange.color = randomLightColor();
-    setRects([...rects.filter(rect => rect.id != id), rectToChange])
+    setRects([...rects.filter(rect => rect.id != id), rectToChange].sort((a, b) => a.id - b.id))
   }
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!mouseIn) return
+    // console.log(e);
+    const svgElement = e.currentTarget as unknown as SVGGraphicsElement;
+    const screenCTM = svgElement.getScreenCTM();
+
+    if (screenCTM) {
+      const domPoint = new DOMPoint(e.clientX, e.clientY);
+      const pointTransformed = domPoint.matrixTransform(screenCTM.inverse())
+      setSvgMousePos({ x: pointTransformed.x, y: pointTransformed.y })
+
+      // console.log(svgMousePos)
+      setEyeAdjLeft(calcLeftEye(svgMousePos));
+      setEyeAdjRight(calcRightEye(svgMousePos))
+      // console.log(eyeAdjLeft)
+
+    } else {
+      console.warn('unable to get screen CTM')
+    }
+    //todo: from the mouse position, calculate x and y for eyes to translate
+    // center of face 
+  }
+
+  const calcLeftEye = (mousePos: { x: number; y: number }) => {
+    // origin of left eye: (220,238)
+    // usecase: setEyeAdjLeft(calcLeftEye(mousePos)). so, return x and y coords
+
+    const dy = mousePos.y - 238;
+    const dx = mousePos.x - 220;
+
+    if (dx === 0 && dy === 0) return { x: 0, y: 0 }
+
+    const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+    let distAdj = eyeD;
+    // adjusted for very close to the eye
+    // if (distance < 50) distAdj = Number(((distance / 50) * eyeD).toFixed(2));
+
+    const θ = Math.atan(dy / dx);
+
+    let xPos = 1.2 * distAdj * Math.cos(θ);
+    if (dx < 0) xPos = -xPos;
+
+    let yPos = distAdj * Math.sin(θ)
+    if (dy < 0) yPos = -Math.abs(yPos)
+    else yPos = Math.abs(yPos)
+
+    return ({ x: xPos, y: yPos })
+  }
+
+  const calcRightEye = (mousePos: { x: number; y: number }) => {
+    // origin of right eye: (294,235)
+
+    const dy = mousePos.y - 238;
+    const dx = mousePos.x - 294;
+
+    if (dx === 0 && dy === 0) return { x: 0, y: 0 }
+
+    const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+    let distAdj = eyeD;
+    // adjusted for very close to the eye
+    // if (distance < 50) distAdj = Number(((distance / 50) * eyeD).toFixed(2));
+
+    const θ = Math.atan(dy / dx);
+
+    let xPos = 1.2 * distAdj * Math.cos(θ);
+    if (dx < 0) xPos = -xPos;
+
+    let yPos = distAdj * Math.sin(θ)
+    if (dy < 0) yPos = -Math.abs(yPos)
+    else yPos = Math.abs(yPos)
+
+    return ({ x: xPos, y: yPos })
+
+  }
+  // 
   //todo: rectangle drag functionality
 
   //* ================== utility ================== *//
@@ -77,7 +155,7 @@ const Logo = () => {
     const r = Math.floor(Math.random() * (154)) + 100;
     const g = Math.floor(Math.random() * (154)) + 100;
     const b = Math.floor(Math.random() * (154)) + 100;
-    console.log('random color: ', r, g, b)
+    // console.log('random color: ', r, g, b)
     return `rgb(${r}, ${g}, ${b})`
   }
 
@@ -85,43 +163,80 @@ const Logo = () => {
     const r = Math.floor(Math.random() * (154));
     const g = Math.floor(Math.random() * (154))
     const b = Math.floor(Math.random() * (154));
-    console.log('random color: ', r, g, b)
+    // console.log('random color: ', r, g, b)
     return `rgb(${r}, ${g}, ${b})`
   }
 
+  const handleMouseLeave = () => {
+    () => setMouseIn(false);
+    setEyeAdjLeft({x:0, y:0});
+    setEyeAdjRight({x:0, y:0})
+  }
   return (
     <div id='logo-div'>
       {/* <LogoControls logoColors={logoColors} setLogoColors={setLogoColors} rects={rects} setRects={setRects} /> */}
 
       <svg version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width='400'
+        width='500'
         viewBox={`0 0 500 500`}
         preserveAspectRatio="xMidYMid meet"
         fill="#000"
         onMouseEnter={() => setMouseIn(true)}
-        onMouseLeave={() => setMouseIn(false)}
+        onMouseLeave={handleMouseLeave}
+        onMouseMove={(e) => handleMouseMove(e)}
+        onClick={(e) => console.log('x:', e.clientX, 'y:', e.clientY)}
       >
+        {/* //* ================ MASKS ================= */}
+        {/* background circle mask */}
+        <mask id='bg-mask'>
 
-        <g>
+          {/* background and mask */}
+          <rect width='1000' height='1000' fill='black' />
+          <circle cx='250' cy='270' r='210' fill='white' />
+        </mask>
 
-          <mask id='mask'>
-            {/* background and mask */}
-            <rect
-              width='1000'
-              height='1000'
-              fill='black'
-            />
-            <circle
-              cx='250'
-              cy='250'
-              r='230'
-              fill='white'
-            />
-          </mask>
+        {/* mask for body */}
+        <mask id='bg-mask-2'>
+          <rect
+            width='1000'
+            height='1000'
+            fill='black'
+          />
+          <circle
+            cx='250'
+            cy='200'
+            r='210'
+            fill='white'
+          />
+        </mask>
 
-        </g>
-        <g>
+        {/* left eye mask */}
+        <mask id='left-eye' >
+          <rect
+            width='1000'
+            height='1000'
+            fill='black'
+          />
+          <path transform='translate(0,0)' fill='white' d="M 205.161 171.198 C 205.161 171.198 206.695 167.914 207.848 166.555 C 208.879 165.339 210.117 164.355 211.496 163.554 C 212.806 162.793 214.223 162.15 215.707 161.843 C 217.397 161.493 219.174 161.489 220.883 161.726 C 222.052 161.888 223.18 162.308 224.268 162.765 C 225.848 163.429 227.321 164.331 228.787 165.22 C 230.864 166.479 233.817 168.876 233.817 168.876 C 233.817 168.876 232.713 169.074 231.65 169.094 C 230.564 169.114 229.512 169.32 228.449 169.545 C 226.71 169.913 223.343 171.101 223.343 171.087 C 223.343 171.073 220.319 171.793 218.779 171.95 C 216.793 172.152 214.787 172.096 212.792 172.044 C 211.603 172.013 209.233 171.802 209.233 171.802 L 205.161 171.198 Z" />
+        </mask>
+        {/* right eye mask */}
+        <mask id='right-eye'>
+          <rect
+            width='1000'
+            height='1000'
+            fill='black'
+          />
+          <path fill='white' d="M 271.375 167.403 C 271.375 167.403 272.61 164.167 273.71 162.872 C 274.706 161.699 276.042 160.813 277.416 160.121 C 279.318 159.162 281.416 158.53 283.529 158.262 C 285.515 158.01 287.568 158.12 289.53 158.521 C 291.299 158.882 292.996 159.596 294.599 160.427 C 295.963 161.134 297.255 162.005 298.411 163.016 C 299.575 164.033 301.506 166.47 301.506 166.47 C 301.506 166.47 298.6 166.363 297.151 166.455 C 294.868 166.599 292.622 167.115 290.345 167.343 C 288.847 167.493 287.346 167.668 285.841 167.657 C 284.427 167.647 283.024 167.416 281.615 167.303 C 280.146 167.185 278.68 166.985 277.207 166.967 C 276.083 166.953 274.959 167.05 273.838 167.139 C 273.015 167.204 271.332 167.454 271.375 167.403 Z" />
+        </mask>
+
+
+        {/* //* ================================================= */}
+
+        <circle cx='250' cy='270' r='215' fill='none' stroke={logoColors.frame} strokeWidth='10' />
+
+
+        <g mask='url(#bg-mask)'>
           {rects.map(rect => {
             return (
               <rect
@@ -136,8 +251,11 @@ const Logo = () => {
             )
           })}
         </g>
-        <g transform={`translate(0,50)`}
-          fill="#000000" stroke="none">
+        <g transform={`translate(0,70)`}
+          fill="#000000"
+          stroke="none"
+          mask='url(#bg-mask-2)'
+        >
           {/*
             //* ================ FACE ================= *
             */}
@@ -188,23 +306,24 @@ const Logo = () => {
             <path stroke='rgb(0, 0, 0)' fill='rgb(255, 255, 255)' d="M 205.161 171.198 C 205.161 171.198 206.695 167.914 207.848 166.555 C 208.879 165.339 210.117 164.355 211.496 163.554 C 212.806 162.793 214.223 162.15 215.707 161.843 C 217.397 161.493 219.174 161.489 220.883 161.726 C 222.052 161.888 223.18 162.308 224.268 162.765 C 225.848 163.429 227.321 164.331 228.787 165.22 C 230.864 166.479 233.817 168.876 233.817 168.876 C 233.817 168.876 232.713 169.074 231.65 169.094 C 230.564 169.114 229.512 169.32 228.449 169.545 C 226.71 169.913 223.343 171.101 223.343 171.087 C 223.343 171.073 220.319 171.793 218.779 171.95 C 216.793 172.152 214.787 172.096 212.792 172.044 C 211.603 172.013 209.233 171.802 209.233 171.802 L 205.161 171.198 Z" />
 //* ===================== EYES ============================
 
-            <g id='left-eye'>
+            <g id='left-eye' mask='url(#left-eye)'>
               {/* left iris */}
-              <path stroke='rgb(0, 0, 0)' fill='rgb(94, 94, 94)' d="M 213.937 162.661 C 213.289 163.121 212.839 163.862 212.558 164.605 C 212.177 165.611 212.181 166.75 212.383 167.807 C 212.602 168.952 213.013 170.09 213.842 170.909 C 214.449 171.508 215.287 171.894 216.121 172.072 C 217.237 172.31 218.414 172.081 219.54 171.895 C 220.861 171.677 222.234 171.591 223.404 170.801 C 224.111 170.324 224.84 169.688 225.118 168.881 C 225.429 167.976 225.483 166.958 225.309 166.017 C 225.135 165.079 224.684 164.181 224.109 163.42 C 223.684 162.857 223.222 162.379 222.491 162.218 C 221.016 161.893 219.867 161.309 217.917 161.509 C 215.967 161.709 215.063 161.861 213.937 162.661 Z" />
+              <path transform={`translate(${eyeAdjLeft.x}, ${eyeAdjLeft.y})`} stroke='rgb(0, 0, 0)' fill='rgb(94, 94, 94)' d="M 213.982 162.617 C 213.343 163.123 212.839 163.862 212.558 164.605 C 212.177 165.611 212.181 166.75 212.383 167.807 C 212.602 168.952 213.013 170.09 213.842 170.909 C 214.449 171.508 215.021 172.031 215.762 172.313 C 216.966 172.771 218.483 172.867 219.609 172.681 C 220.93 172.463 222.387 171.806 223.51 170.928 C 224.194 170.394 224.84 169.688 225.118 168.881 C 225.429 167.976 225.483 166.958 225.309 166.017 C 225.135 165.079 224.684 164.181 224.109 163.42 C 223.684 162.857 222.86 162.093 222.052 161.723 C 220.702 161.104 219.204 160.89 217.77 161.06 C 216.414 161.221 215.052 161.77 213.982 162.617 Z" />
+
 
               {/* left pupil */}
-              <path d="M 216.593 164.497 C 217.252 164.009 218.312 163.824 219.131 163.862 C 220.081 163.906 221.208 164.149 221.836 164.771 C 222.36 165.29 222.72 166.214 222.649 166.946 C 222.59 167.547 222.213 168.156 221.73 168.552 C 221.098 169.07 220.201 169.506 219.355 169.549 C 218.311 169.602 217.003 169.276 216.19 168.563 C 215.652 168.091 215.363 167.374 215.407 166.703 C 215.464 165.826 215.887 165.02 216.593 164.497 Z" />
+              <path transform={`translate(${eyeAdjLeft.x}, ${eyeAdjLeft.y})`} d="M 216.593 164.497 C 217.252 164.009 218.312 163.824 219.131 163.862 C 220.081 163.906 221.208 164.149 221.836 164.771 C 222.36 165.29 222.72 166.214 222.649 166.946 C 222.59 167.547 222.213 168.156 221.73 168.552 C 221.098 169.07 220.201 169.506 219.355 169.549 C 218.311 169.602 217.003 169.276 216.19 168.563 C 215.652 168.091 215.363 167.374 215.407 166.703 C 215.464 165.826 215.887 165.02 216.593 164.497 Z" />
             </g>
             {/* right eye outline */}
             <path stroke='rgb(0, 0, 0)' fill='rgb(255, 255, 255)' d="M 271.375 167.403 C 271.375 167.403 272.61 164.167 273.71 162.872 C 274.706 161.699 276.042 160.813 277.416 160.121 C 279.318 159.162 281.416 158.53 283.529 158.262 C 285.515 158.01 287.568 158.12 289.53 158.521 C 291.299 158.882 292.996 159.596 294.599 160.427 C 295.963 161.134 297.255 162.005 298.411 163.016 C 299.575 164.033 301.506 166.47 301.506 166.47 C 301.506 166.47 298.6 166.363 297.151 166.455 C 294.868 166.599 292.622 167.115 290.345 167.343 C 288.847 167.493 287.346 167.668 285.841 167.657 C 284.427 167.647 283.024 167.416 281.615 167.303 C 280.146 167.185 278.68 166.985 277.207 166.967 C 276.083 166.953 274.959 167.05 273.838 167.139 C 273.015 167.204 271.332 167.454 271.375 167.403 Z" />
 
 
             {/* right iris */}
-            <g id='right eye'>
-              <path stroke='rgb(0, 0, 0)' fill='rgb(94, 94, 94)' d="M 281.217 158.882 C 281.217 158.882 279.89 159.738 279.438 160.356 C 278.928 161.053 278.442 161.825 278.42 162.794 C 278.403 163.55 278.842 164.624 279.233 165.346 C 279.579 165.985 280.638 167.122 280.638 167.122 C 280.638 167.122 283.046 167.417 284.139 167.501 C 285.386 167.597 286.642 167.587 287.89 167.505 C 288.391 167.472 289.382 167.306 289.382 167.306 C 289.382 167.306 290.462 166.292 290.741 165.682 C 291.098 164.902 291.26 164.031 291.331 163.176 C 291.399 162.351 291.34 161.508 291.167 160.698 C 291.041 160.107 290.536 159.014 290.536 158.997 C 290.536 158.98 288.924 158.414 287.859 158.284 C 286.727 158.146 285.112 158.093 283.978 158.216 C 283.037 158.318 281.217 158.882 281.217 158.882 Z" />
+            <g id='right eye' mask='url(#right-eye)'>
+              <path transform={`translate(${eyeAdjRight.x}, ${eyeAdjRight.y})`} stroke='rgb(0, 0, 0)' fill='rgb(94, 94, 94)' d="M 280.874 158.615 C 280.874 158.615 279.736 159.539 279.284 160.157 C 278.774 160.854 278.442 161.825 278.42 162.794 C 278.403 163.55 278.842 164.624 279.233 165.346 C 279.579 165.985 280.638 167.122 280.638 167.122 C 280.638 167.122 282.748 168.124 283.841 168.208 C 285.088 168.304 286.147 168.382 287.266 168.157 C 288.011 168.007 289.382 167.306 289.382 167.306 C 289.382 167.306 290.462 166.292 290.741 165.682 C 291.098 164.902 291.26 164.031 291.331 163.176 C 291.399 162.351 291.34 161.508 291.167 160.698 C 291.041 160.107 290.196 159.043 290.196 159.043 C 290.196 159.043 288.827 157.741 287.804 157.488 C 286.58 157.185 285.217 157.277 284.083 157.4 C 283.142 157.502 280.874 158.615 280.874 158.615 Z" />
 
               {/* right pupil */}
-              <path d="M 281.517 162.627 C 281.558 161.998 281.874 161.365 282.312 160.912 C 282.894 160.312 283.728 159.931 284.553 159.796 C 285.46 159.648 286.472 159.743 287.282 160.175 C 287.947 160.53 288.528 161.218 288.741 161.941 C 288.97 162.719 288.84 163.611 288.411 164.266 C 287.963 164.95 287.116 165.356 286.323 165.554 C 285.427 165.778 284.431 165.681 283.558 165.38 C 282.985 165.183 282.419 164.841 282.059 164.354 C 281.7 163.869 281.478 163.229 281.517 162.627 Z" />
+              <path transform={`translate(${eyeAdjRight.x}, ${eyeAdjRight.y})`} d="M 281.517 162.627 C 281.558 161.998 281.874 161.365 282.312 160.912 C 282.894 160.312 283.728 159.931 284.553 159.796 C 285.46 159.648 286.472 159.743 287.282 160.175 C 287.947 160.53 288.528 161.218 288.741 161.941 C 288.97 162.719 288.84 163.611 288.411 164.266 C 287.963 164.95 287.116 165.356 286.323 165.554 C 285.427 165.778 284.431 165.681 283.558 165.38 C 282.985 165.183 282.419 164.841 282.059 164.354 C 281.7 163.869 281.478 163.229 281.517 162.627 Z" />
             </g>
             {/* right eye crease */}
             <path fill='none' stroke='rgb(0, 0, 0)' d="M 273.865 160.238 C 273.865 160.238 274.779 158.275 275.544 157.545 C 276.727 156.416 278.268 155.649 279.825 155.147 C 282.555 154.267 285.369 154.206 288.234 154.345 C 290.451 154.452 292.929 154.907 295.023 155.743 C 296.81 156.457 298.303 157.525 299.719 158.722 C 301.196 159.97 303.599 163.033 303.599 163.033" />
