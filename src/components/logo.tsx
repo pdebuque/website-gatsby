@@ -11,12 +11,13 @@ const Logo = () => {
   // let window = useWindowSize();
   // console.log(window)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setClickMeOn(true)
-      console.log('click me')
-    }, 5000)
-  }, [])
+  //* open click me display after a timeout.
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setClickMeOn(true)
+  //     console.log('click me')
+  //   }, 5000)
+  // }, [])
 
 
 
@@ -104,7 +105,6 @@ const Logo = () => {
     } else {
       console.warn('unable to get screen CTM')
     }
-    //todo: from the mouse position, calculate x and y for eyes to translate
     // center of face 
   }
 
