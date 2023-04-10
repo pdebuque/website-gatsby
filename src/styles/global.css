@@ -45,14 +45,14 @@ html {
   font-size: var(--font-md);
   line-height: var(--line-height-normal);
   overflow-y: scroll;
-  
+
 
 }
 
 body {
   background-image: url('/Users/pdebuque/Documents/website-gatsby/src/images/black_dots_background.jpeg');
   background-repeat: no-repeat;
-  
+
   /* padding: var(--space-5) 0 0 0 */
 }
 
@@ -97,6 +97,35 @@ a:hover {
 
 #logo-div {
   /* background-color: var(--color-primary) */
+}
+
+.svg-on {
+  font: bold 60px sans-serif;
+  font-weight: 100;
+  fill: rgb(204, 78, 78);
+  animation: blink 4s ease-in infinite;
+}
+
+.svg-off {
+  display: none;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0
+  }
 }
 
 h1 {

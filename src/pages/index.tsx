@@ -52,12 +52,12 @@ const IndexPage = () => {
         style={{ marginBottom: `var(--space-3)` }}
       /> */}
         <Logo />
-        <h1>
+        <h1 style = {{fontSize: 42, fontWeight: 400}}>
           Paolo Debuque
         </h1>
-        <h2 style = {{fontWeight: 400}}><i>/ pow-loe de-boo-keh</i> // he/him</h2>
+        <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'pow-loe de-boo-keh'</i> &nbsp;| &nbsp; he/him</h2>
         <p className={styles.intro}>
-          I am a musician, software engineer, and occasional writer based in Minneapolis, MN.
+          Minneapolis-based musician, software engineer, and occasional writer.
         </p>
       </div>
       <main>
@@ -80,7 +80,7 @@ const IndexPage = () => {
           </div>
         </div>
 
-<hr/>
+        <hr />
         <div className={styles.projectContainer} id="blog-container">
           <div><button>expand</button></div>
           <h3>some thoughts</h3>
