@@ -55,7 +55,7 @@ const IndexPage = () => {
         <h1 style={{ fontSize: 42, fontWeight: 400 }}>
           Paolo Debuque
         </h1>
-        <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'pow-loe de-boo-keh'</i> &nbsp;| &nbsp; he/him</h2>
+        <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'POW-loe de-BOO-keh'</i> &nbsp;| &nbsp; he/him</h2>
         <p className={styles.intro}>
           Minneapolis-based musician, software engineer, and occasional writer.
           <br />
@@ -70,7 +70,7 @@ const IndexPage = () => {
             <h3>some code</h3>
           </div>
           <div style={{ textAlign: 'left', fontWeight: 200 }}>
-            <p>stuff i've worked on, in various stages of completion</p>
+            <p style ={{fontSize: '15px', fontStyle: 'italic'}}>stuff i've worked on, in various stages of completion</p>
           </div>
           <div className={styles.projectList}>
             {codePosts.map((post, i) => {
@@ -79,11 +79,11 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <hr />
+        {/* <hr />
         <div className={styles.projectContainer} id="blog-container">
           <div></div>
           <h3 style = {{display: 'flex', alignItems: 'center'}}>some thoughts</h3>
-        </div>
+        </div> */}
       </main>
     </>
     // </Layout>

@@ -33,7 +33,7 @@
   text-decoration: none;
   font-family: var(--font-sans);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  /* background-color: var(--color-bg); */
 }
 
 html,
@@ -52,14 +52,17 @@ html {
 body {
   background-image: url('/Users/pdebuque/Documents/website-gatsby/src/images/black_dots_background.jpeg');
   background-repeat: no-repeat;
-
+  background-color: var(--color-bg);
   /* padding: var(--space-5) 0 0 0 */
 }
 
 main {
   width: calc(var(--size-content));
   margin: auto;
+  padding-bottom: var(--space-4);
   display: grid;
+  background-color: white;
+  border-radius: 12px;
   /* grid-template-columns: 1fr 1fr; */
 }
 

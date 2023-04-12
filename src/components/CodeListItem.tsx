@@ -20,23 +20,25 @@ const CodeListItem = (props: Props) => {
 
   return (
     <>
-      <div className = {styles.expand_button}>
+      <div className={styles.expand_button}>
         <button onClick={() => setCollapse(!collapse)}>&nbsp;...&nbsp;</button>
       </div>
-      <div>
-        <a href={code.github}>
-          <img src={githubMark} style = {{width: '1.2rem', height: '1.2rem'}} alt="github logo" />
+      <div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <a style = {{display: 'flex', justifyContent: 'center'}} href={code.github}>
+          <img src={githubMark} style={{ width: '1.2rem', height: '1.2rem' }} alt="github logo" />
         </a>
-        <a href={code.deploy} target='_blank' style = {{textDecoration: 'none'}}>
-          <span className = {styles.main_link}>&nbsp;{code.name}</span></a>
       </div>
-      <div></div>
       <div>
-        
+
+        <a href={code.deploy} target='_blank' style={{ textDecoration: 'none' }}>
+          <span className={styles.main_link}>&nbsp;{code.name}</span></a>
+      </div>
+      <div>
+
 
       </div>
 
-      <div className = {styles.expand_container} style={{  display: collapse ? 'none' : ''}}>
+      <div className={styles.expand_container} style={{ display: collapse ? 'none' : '' }}>
         <p style={{ fontWeight: 200, fontSize: 14 }}>{code.blurb}</p>
         <p>technologies: {code.technologies.map(tech => {
           return <code>&nbsp;{tech}&nbsp;</code>

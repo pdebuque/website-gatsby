@@ -39,6 +39,25 @@ export const codePosts: CodeInt[] = [
       'react',
       'redux',
       'material-UI',
+      'postgresql',
+      'nodejs',
+      'expressjs'
     ],
+  },
+  {
+    name: 'MN Women\'s Press Content Manager',
+    blurb: 'Content Manager for MN Women\s Press, a feminist monthly magazine. Handles creation, deletion, editing, and archiving of publication\'s many contacts, stories, and themes. Capstone group project for Prime Digital Academy.',
+    startDate: DateTime.fromObject({year: 2023, month: 1, day: 1}),
+    github: 'https://github.com/pdebuque/MN-Womens-Press-CM',
+    deploy: '',
+    technologies: [
+      'html/css/js',
+      'react',
+      'redux',
+      'material-UI',
+      'postgresql',
+      'nodejs',
+      'expressjs'
+    ]
   }
 ]
