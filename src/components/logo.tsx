@@ -8,8 +8,18 @@ import { LogoColorsInt, RectInt } from '../model';
 
 const Logo = () => {
 
-  // const window = useWindowSize();
+  // let window = useWindowSize();
   // console.log(window)
+
+  //* open click me display after a timeout.
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setClickMeOn(true)
+  //     console.log('click me')
+  //   }, 5000)
+  // }, [])
+
+
 
   //* ================= logo controls ================= *//
   const [logoColors, setLogoColors] = useState<LogoColorsInt>({
@@ -23,6 +33,7 @@ const Logo = () => {
   })
 
   const eyeD = 3; // constant for magnitude of eye movements
+  const [clickMeOn, setClickMeOn] = useState<boolean>(false)
   const [svgMousePos, setSvgMousePos] = useState({ x: 0, y: 0 })
   const [eyeAdjLeft, setEyeAdjLeft] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
   const [eyeAdjRight, setEyeAdjRight] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
@@ -31,10 +42,12 @@ const Logo = () => {
   const handleFaceClick = () => {
     // console.log('clicked face')
     setLogoColors({ ...logoColors, frame: randomDarkColor() })
+    setClickMeOn(false)
   }
 
   const handleShirtClick = () => {
     setLogoColors({ ...logoColors, shirt: randomDarkColor(), trim: randomDarkColor() })
+    setClickMeOn(false)
   }
 
   //* =================== rectangle controls ====================== *//
@@ -70,6 +83,7 @@ const Logo = () => {
     const rectToChange = rects.filter(rect => rect.id === id)[0];
     rectToChange.color = randomLightColor();
     setRects([...rects.filter(rect => rect.id != id), rectToChange].sort((a, b) => a.id - b.id))
+    setClickMeOn(false)
   }
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -91,7 +105,6 @@ const Logo = () => {
     } else {
       console.warn('unable to get screen CTM')
     }
-    //todo: from the mouse position, calculate x and y for eyes to translate
     // center of face 
   }
 
@@ -101,19 +114,15 @@ const Logo = () => {
 
     const dy = mousePos.y - 238;
     const dx = mousePos.x - 220;
-
     if (dx === 0 && dy === 0) return { x: 0, y: 0 }
 
-    const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+    // const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
     let distAdj = eyeD;
     // adjusted for very close to the eye
     // if (distance < 50) distAdj = Number(((distance / 50) * eyeD).toFixed(2));
-
     const θ = Math.atan(dy / dx);
-
     let xPos = 1.2 * distAdj * Math.cos(θ);
     if (dx < 0) xPos = -xPos;
-
     let yPos = distAdj * Math.sin(θ)
     if (dy < 0) yPos = -Math.abs(yPos)
     else yPos = Math.abs(yPos)
@@ -126,23 +135,17 @@ const Logo = () => {
 
     const dy = mousePos.y - 238;
     const dx = mousePos.x - 294;
-
     if (dx === 0 && dy === 0) return { x: 0, y: 0 }
-
-    const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+    // const distance = Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
     let distAdj = eyeD;
     // adjusted for very close to the eye
     // if (distance < 50) distAdj = Number(((distance / 50) * eyeD).toFixed(2));
-
     const θ = Math.atan(dy / dx);
-
     let xPos = 1.2 * distAdj * Math.cos(θ);
     if (dx < 0) xPos = -xPos;
-
     let yPos = distAdj * Math.sin(θ)
     if (dy < 0) yPos = -Math.abs(yPos)
     else yPos = Math.abs(yPos)
-
     return ({ x: xPos, y: yPos })
 
   }
@@ -169,8 +172,8 @@ const Logo = () => {
 
   const handleMouseLeave = () => {
     () => setMouseIn(false);
-    setEyeAdjLeft({x:0, y:0});
-    setEyeAdjRight({x:0, y:0})
+    setEyeAdjLeft({ x: 0, y: 0 });
+    setEyeAdjRight({ x: 0, y: 0 })
   }
   return (
     <div id='logo-div'>
@@ -186,6 +189,7 @@ const Logo = () => {
         onMouseLeave={handleMouseLeave}
         onMouseMove={(e) => handleMouseMove(e)}
         onClick={(e) => console.log('x:', e.clientX, 'y:', e.clientY)}
+        style={{ cursor: mouseIn ? 'pointer' : '' }}
       >
         {/* //* ================ MASKS ================= */}
         {/* background circle mask */}
@@ -232,7 +236,7 @@ const Logo = () => {
 
 
         {/* //* ================================================= */}
-
+      <LogoControls logoColors={logoColors} setLogoColors={setLogoColors} rects={rects} setRects={setRects} />
         <circle cx='250' cy='270' r='215' fill='none' stroke={logoColors.frame} strokeWidth='10' />
 
 
@@ -379,7 +383,10 @@ const Logo = () => {
           </g>
 
 
-
+        </g>
+        <g className={clickMeOn? 'svg-on': 'svg-off'} opacity={clickMeOn ? '0%' : '100%'} transform='translate(102,450)'>
+          <rect transform = 'translate(-10, -70)' width='315' height='100' fill='#C0EFFA '></rect>
+          <text x='0' y='0' >(click me!)</text>
         </g>
       </svg>
 

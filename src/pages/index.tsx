@@ -52,26 +52,25 @@ const IndexPage = () => {
         style={{ marginBottom: `var(--space-3)` }}
       /> */}
         <Logo />
-        <h1>
+        <h1 style={{ fontSize: 42, fontWeight: 400 }}>
           Paolo Debuque
         </h1>
-        <h2 style = {{fontWeight: 400}}><i>/ pow-loe de-boo-keh</i> // he/him</h2>
+        <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'POW-loe de-BOO-keh'</i> &nbsp;| &nbsp; he/him</h2>
         <p className={styles.intro}>
-          I am a musician, software engineer, and occasional writer based in Minneapolis, MN.
+          Minneapolis-based musician, software engineer, and occasional writer.
+          <br />
+          <span className={styles.hint}>(<b>hint:</b> try clicking around on the portrait above)</span>
         </p>
       </div>
-      <main>
+      <main className = {styles.main}>
         <div className={styles.projectContainer} id="code-container">
           <div>
-            <button
-              onClick={() => setCodeBlurbShow(!codeBlurbShow)}
-            >expand</button>
           </div>
-          <div>
+          <div style = {{display: 'flex', alignItems: 'center'}}>
             <h3>some code</h3>
           </div>
-          <div style={{ display: 'grid', gridColumn: '1/-1', textAlign: 'left' }}>
-            <p >some stuff i've worked on, in various stages of completion</p>
+          <div style={{ textAlign: 'left', fontWeight: 200 }}>
+            <p style ={{fontSize: '15px', fontStyle: 'italic'}}>stuff i've worked on, in various stages of completion</p>
           </div>
           <div className={styles.projectList}>
             {codePosts.map((post, i) => {
@@ -80,11 +79,11 @@ const IndexPage = () => {
           </div>
         </div>
 
-<hr/>
+        {/* <hr />
         <div className={styles.projectContainer} id="blog-container">
-          <div><button>expand</button></div>
-          <h3>some thoughts</h3>
-        </div>
+          <div></div>
+          <h3 style = {{display: 'flex', alignItems: 'center'}}>some thoughts</h3>
+        </div> */}
       </main>
     </>
     // </Layout>
