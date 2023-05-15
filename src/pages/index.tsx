@@ -57,20 +57,25 @@ const IndexPage = () => {
         </h1>
         <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'POW-loe de-BOO-keh'</i> &nbsp;| &nbsp; he/him</h2>
         <p className={styles.intro}>
-          Minneapolis-based musician, software engineer, and occasional writer.
+          Hello! 👋🏽
+          <br/>
+
+          My name is <b>Paolo Debuque</b>. I am a Filipino/Chinese-American software engineer and musician with a strong drive for excellence and a passion for discerning and cultivating clarity, accessibility, and beauty in all that I do.
+
+          <br />
           <br />
           <span className={styles.hint}>(<b>hint:</b> try clicking around on the portrait above)</span>
         </p>
       </div>
-      <main className = {styles.main}>
+      <main className={styles.main}>
         <div className={styles.projectContainer} id="code-container">
           <div>
           </div>
-          <div style = {{display: 'flex', alignItems: 'center'}}>
-            <h3>some code</h3>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h3>code</h3>
           </div>
           <div style={{ textAlign: 'left', fontWeight: 200 }}>
-            <p style ={{fontSize: '15px', fontStyle: 'italic'}}>stuff i've worked on, in various stages of completion</p>
+            <p style={{ fontSize: '15px', fontStyle: 'italic' }}>stuff i've worked on, in various stages of completion</p>
           </div>
           <div className={styles.projectList}>
             {codePosts.map((post, i) => {
@@ -84,6 +89,23 @@ const IndexPage = () => {
           <div></div>
           <h3 style = {{display: 'flex', alignItems: 'center'}}>some thoughts</h3>
         </div> */}
+      </main>
+      <main className = {styles.main}>
+      <div className={styles.projectContainer} id="code-container">
+          <div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h3>music</h3>
+          </div>
+          <div style={{ textAlign: 'left', fontWeight: 200 }}>
+            <p style={{ fontSize: '15px', fontStyle: 'italic' }}>meaningful projects</p>
+          </div>
+          <div className={styles.projectList}>
+            {codePosts.map((post, i) => {
+              return <CodeListItem key={i} code={post} />
+            })}
+          </div>
+        </div>
       </main>
     </>
     // </Layout>
