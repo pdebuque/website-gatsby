@@ -32,3 +32,13 @@ export interface CodeInt {
   deploy: string;
   technologies: string[];
 }
+
+export interface MusicInt {
+  name: string;
+  blurb: string;
+  about: string;
+  startDate: DateTime;
+  performances: DateTime[];
+  flyer: string;
+  recordings: string[];
+}

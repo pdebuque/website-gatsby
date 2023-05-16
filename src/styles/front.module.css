@@ -1,0 +1,67 @@
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.text {
+  margin-top: 10rem;
+  margin-left: 1rem;
+}
+
+.header {
+  font-size: 60px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.paolo:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #005eff, #00ff08);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* transition: background 0.3s ease-out; */
+  display: inline-block;
+}
+/* 
+.paolo:hover {
+  cursor: pointer;
+  transition: color .3s ease-out;
+  color: red;
+} */
+
+.debuque:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #ffa500, #ff00fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* transition: background-position 0.3s ease-out; */
+  display: inline-block;
+
+}
+
+.blurb {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.cool {
+  opacity: 0;
+  font-size: 12px;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.cool:hover{
+  opacity: .3;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text)
+}
+
+.link:hover {
+  color: rgb(0, 0, 230)
+}
