@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import * as styles from '../styles/index.module.css'
 import Logo from "../components/logo"
 import CodeListItem from '../components/CodeListItem'
-import BlogListItem from '../components/BlogListItem'
+import Front from "../components/Front"
 
 import { codePosts } from '../content/_code';
 
@@ -32,15 +32,15 @@ const containerStyle: React.CSSProperties = {
 }
 
 
-
 const IndexPage = () => {
 
   const [codeBlurbShow, setCodeBlurbShow] = useState(false)
 
   return (
 
-    // <Layout>
-    <>
+    <Layout>
+      {/* <> */}
+      <Front />
       <div className={styles.front}>
         {/* <StaticImage
         src="../images/paolo-face-icon.svg"
@@ -51,22 +51,26 @@ const IndexPage = () => {
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
       /> */}
-        <Logo />
-        <h1 style={{ fontSize: 42, fontWeight: 400 }}>
+        {/* <Logo /> */}
+        {/* <h1 style={{ fontSize: 42, fontWeight: 400 }}>
           Paolo Debuque
         </h1>
         <h2 style={{ fontWeight: 200, fontSize: 22 }}><i>'POW-loe de-BOO-keh'</i> &nbsp;| &nbsp; he/him</h2>
         <p className={styles.intro}>
           Hello! 👋🏽
-          <br/>
+          <br />
 
-          My name is <b>Paolo Debuque</b>. I am a Filipino/Chinese-American software engineer and musician with a strong drive for excellence and a passion for discerning and cultivating clarity, accessibility, and beauty in all that I do.
+          I am a Filipino/Chinese-American software engineer and musician with a passion for clarity, accessibility, and beauty.
 
           <br />
           <br />
           <span className={styles.hint}>(<b>hint:</b> try clicking around on the portrait above)</span>
-        </p>
+        </p> */}
       </div>
+
+
+
+
       <main className={styles.main}>
         <div className={styles.projectContainer} id="code-container">
           <div>
@@ -90,25 +94,10 @@ const IndexPage = () => {
           <h3 style = {{display: 'flex', alignItems: 'center'}}>some thoughts</h3>
         </div> */}
       </main>
-      <main className = {styles.main}>
-      <div className={styles.projectContainer} id="code-container">
-          <div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h3>music</h3>
-          </div>
-          <div style={{ textAlign: 'left', fontWeight: 200 }}>
-            <p style={{ fontSize: '15px', fontStyle: 'italic' }}>meaningful projects</p>
-          </div>
-          <div className={styles.projectList}>
-            {codePosts.map((post, i) => {
-              return <CodeListItem key={i} code={post} />
-            })}
-          </div>
-        </div>
-      </main>
-    </>
-    // </Layout>
+
+      {/* </> */}
+
+    </Layout>
   )
 }
 /**

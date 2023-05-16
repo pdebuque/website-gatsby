@@ -33,12 +33,12 @@ export const codePosts: CodeInt[] = [
     blurb: 'Project creation and management tool for freelance musicians. Solo project from Prime Digital Academy.',
     startDate: DateTime.fromObject({year: 2022, month: 11, day: 30}),
     github: 'https://github.com/pdebuque/Gig-Tree',
-    deploy: '',
+    deploy: 'https://gig-tree.herokuapp.com/',
     technologies: [
       'html/css/js',
       'react',
       'redux',
-      'material-UI',
+      'materialUI',
       'postgresql',
       'nodejs',
       'expressjs'
@@ -54,7 +54,7 @@ export const codePosts: CodeInt[] = [
       'html/css/js',
       'react',
       'redux',
-      'material-UI',
+      'materialUI',
       'postgresql',
       'nodejs',
       'expressjs'

@@ -1,3 +1,5 @@
+/* this file is ONLY used in the layout component. All CSS within components should be handled by corresponding modules */
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
@@ -5,8 +7,8 @@
   --color-primary: #282fb5;
   --color-secondary: #E63946;
   --color-beige: #f1faee;
-  --color-text: #1D3557;
-  --color-bg: #faf3e0;
+  --color-text: #110a2e;
+  --color-bg: #f3f2f0;
   --font-sans: 'Merriweather Sans';
   --font-serif: 'Merriweather';
   --font-lg: 18px;
@@ -22,7 +24,7 @@
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 64px;
-  --size-content: 54rem;
+  --size-content: 72rem;
   --size-gutter: var(--space-5);
   --size-gap: var(--space-6);
 }
@@ -45,8 +47,6 @@ html {
   font-size: var(--font-md);
   line-height: var(--line-height-normal);
   overflow-y: scroll;
-
-
 }
 
 body {
@@ -61,7 +61,6 @@ main {
   margin: auto;
   padding-bottom: var(--space-4);
   display: grid;
-  background-color: white;
   border-radius: 12px;
   /* grid-template-columns: 1fr 1fr; */
 }
