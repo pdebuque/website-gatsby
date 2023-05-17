@@ -27,7 +27,8 @@ const CodeCard: FC<Props> = (props) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
-    <a href={deploy} target='_blank'>
+    <div className = {styles.cardContainer}>
+    <a className = {styles.link} href={deploy} target='_blank'>
       <div
         className={styles.card}
         onMouseEnter={() => setIsHovered(true)}
@@ -53,6 +54,7 @@ const CodeCard: FC<Props> = (props) => {
           </div>}
       </div>
     </a>
+    </div>
   )
 }
 

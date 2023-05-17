@@ -37,7 +37,9 @@ const containerStyle: React.CSSProperties = {
 const IndexPage = () => {
 
   const [codeBlurbShow, setCodeBlurbShow] = useState(false)
-  const [arrowShow, setArrowShow] = useState<boolean>(true)
+  const [arrowShow, setArrowShow] = useState<boolean>(false)
+
+  setTimeout(()=>setArrowShow(true), 4000)
 
   return (
 

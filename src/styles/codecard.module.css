@@ -7,6 +7,16 @@
 
 } */
 
+.cardContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: inline-block;
+}
+
+
 .card {
   /* border: 2px solid rgb(0, 0, 99); */
   width: 400px;
