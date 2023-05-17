@@ -36,19 +36,21 @@
   overflow: hidden;
 }
 
-.card::before { /* Add this */
+.card::before {
+  /* Add this */
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.card:hover::before { /* Add this */
+.card:hover::before {
+  /* Add this */
   opacity: 1;
 }
 
@@ -73,7 +75,7 @@
   border-radius: 12px;
   position: absolute;
   bottom: 0;
-  left:0;
+  left: 0;
   right: 0;
   transition: opacity 0.3s ease;
   opacity: 0;
@@ -83,7 +85,7 @@
   opacity: 1;
 }
 
-.cardTitle{
+.cardTitle {
   color: white;
 
 }
@@ -95,13 +97,14 @@
 
 .techList {
   overflow-x: scroll;
+  white-space: nowrap;
 }
 
-.techList::-webkit-scrollbar{
+.techList::-webkit-scrollbar {
   background: transparent
 }
 
-.techList::-webkit-scrollbar-corner{
+.techList::-webkit-scrollbar-corner {
   background: transparent;
 }
 

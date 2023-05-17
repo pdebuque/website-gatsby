@@ -14,7 +14,7 @@ interface Props {
   technologies: string[]
 }
 
-const CodeCard: FC<Props> = (props) => {
+const CodeCard: FC<Props> = (props:Props) => {
   const {
     image,
     blurb,

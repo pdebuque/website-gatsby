@@ -2,7 +2,7 @@ import { CodeInt } from "../model";
 
 import { DateTime } from 'luxon';
 
-import sudokuImg from '../images/code_images/sudoku'
+import sudokuImg from '../images/code_images/sudoku.png'
 
 /* 
 template code:
@@ -18,7 +18,7 @@ template code:
 
 export const codePosts: CodeInt[] = [
   {
-    image: { sudokuImg },
+    image: sudokuImg,
     name: 'sudoku',
     blurb: 'I built this frontend sudoku game to learn typescript and redux-toolkit. Future additions will include a timer, better keyboard controls, and (possibly) full-stack integration',
     startDate: DateTime.fromObject({ year: 2023, month: 2, day: 24 }),

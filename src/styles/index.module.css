@@ -62,7 +62,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  /* left: 50%; */
+  right: 45%;
+  bottom: 0%;
  
+}
+
+.reminder p {
+  text-align: center;
+  display: inline;
+  margin: 0 auto 4px;
+}
+
+.arrowLink {
+  text-decoration: none;
+}
+
+.arrowLink:hover {
+  background-color: rgba(0,0,0,.2)
 }
 
 .arrow{
