@@ -25,6 +25,7 @@ export interface BlogInt {
 }
 
 export interface CodeInt {
+  image: string;
   name: string;
   blurb: string;
   startDate: DateTime;

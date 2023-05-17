@@ -1,12 +1,114 @@
+/* .anchor {
+  display: block;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  
+
+} */
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: inline-block;
+  width: 90%;
+}
+
+
 .card {
-  border: 2px solid rgb(0, 0, 99);
+  /* border: 2px solid rgb(0, 0, 99); */
+  width: 90%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: all 0.3s ease;
   border-radius: 12px;
   padding: var(--space-3);
   margin: var(--space-3) auto;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 49, 0.2);
+  overflow: hidden;
 }
 
-.card p {
+.card::before {
+  /* Add this */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  /* Add this */
+  opacity: 1;
+}
+
+
+.card:hover {
+  box-shadow: 6px 8px 2px 1px rgba(0, 0, 49, 0.2);
+  transform: translate(-2px, -2px) scale(1.01);
+
+}
+
+/* .card p {
   font-size: var(--font-sm);
   font-weight: 100;
   line-height: var(--line-height-dense);
+} */
+
+.cardText {
+  color: #fff;
+  /* background: rgba(0, 0, 0, 0.6); */
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.card:hover .cardText {
+  opacity: 1;
+}
+
+.cardTitle {
+  color: white;
+
+}
+
+.cardBlurb {
+  color: white;
+  font-weight: 300;
+}
+
+.techList {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.techList::-webkit-scrollbar {
+  background: transparent
+}
+
+.techList::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.techList:hover::-webkit-scrollbar-thumb {
+  background: rgb(142, 142, 142);
+  border-radius: 12px;
 }

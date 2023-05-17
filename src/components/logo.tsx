@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 import LogoControls from './LogoControls';
 
+import * as styles from '../styles/logo.module.css'
+
 import { LogoColorsInt, RectInt } from '../model';
 
 type props = {
@@ -54,6 +56,12 @@ const [svgMousePos, setSvgMousePos] = useState({ x: 0, y: 0 })
 const [eyeAdjLeft, setEyeAdjLeft] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
 const [eyeAdjRight, setEyeAdjRight] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
 const [mouseIn, setMouseIn] = useState<boolean>(false)
+
+const [idle, setIdle] = useState<boolean>(false)
+
+// setTimeout(()=>{
+//   setIdle(true);
+// }, 3000)
 
 const handleFaceClick = () => {
   // console.log('clicked face')
@@ -267,6 +275,7 @@ return (
               fill={rect.color}
               stroke='none'
               onClick={() => handleRectClick(rect.id)}
+              className = {idle ? styles.idle: ''}
             />
           )
         })}
