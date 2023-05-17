@@ -67,14 +67,6 @@ const IndexPage = () => {
           })}
       </div>
 
-      <CodeCard 
-        image='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
-        blurb='sample text blah blah'
-        deploy = 'https://www.google.com'
-        name = 'This is a Sample Project'
-        github = 'https://www.github.com'
-      />
-
 
       {/* <div className={styles.front}> */}
         {/* <StaticImage

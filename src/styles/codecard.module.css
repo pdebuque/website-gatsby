@@ -14,12 +14,13 @@
 
 .link {
   display: inline-block;
+  width: 90%;
 }
 
 
 .card {
   /* border: 2px solid rgb(0, 0, 99); */
-  width: 400px;
+  width: 90%;
   height: 300px;
   background-size: cover;
   background-position: center;
@@ -93,5 +94,18 @@
 }
 
 .techList {
-  display: flex
+  overflow-x: scroll;
+}
+
+.techList::-webkit-scrollbar{
+  background: transparent
+}
+
+.techList::-webkit-scrollbar-corner{
+  background: transparent;
+}
+
+.techList:hover::-webkit-scrollbar-thumb {
+  background: rgb(142, 142, 142);
+  border-radius: 12px;
 }

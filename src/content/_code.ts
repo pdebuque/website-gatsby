@@ -1,6 +1,8 @@
 import { CodeInt } from "../model";
 
-import { DateTime } from 'luxon'
+import { DateTime } from 'luxon';
+
+import sudokuImg from '../images/code_images/sudoku'
 
 /* 
 template code:
@@ -16,7 +18,7 @@ template code:
 
 export const codePosts: CodeInt[] = [
   {
-    image: '',
+    image: { sudokuImg },
     name: 'sudoku',
     blurb: 'I built this frontend sudoku game to learn typescript and redux-toolkit. Future additions will include a timer, better keyboard controls, and (possibly) full-stack integration',
     startDate: DateTime.fromObject({ year: 2023, month: 2, day: 24 }),
@@ -33,7 +35,7 @@ export const codePosts: CodeInt[] = [
     image: '',
     name: 'gig tree',
     blurb: 'Project creation and management tool for freelance musicians. Solo project from Prime Digital Academy.',
-    startDate: DateTime.fromObject({year: 2022, month: 11, day: 30}),
+    startDate: DateTime.fromObject({ year: 2022, month: 11, day: 30 }),
     github: 'https://github.com/pdebuque/Gig-Tree',
     deploy: 'https://gig-tree.herokuapp.com/',
     technologies: [
@@ -50,7 +52,7 @@ export const codePosts: CodeInt[] = [
     image: '',
     name: 'MN Women\'s Press Content Manager',
     blurb: 'Content Manager for MN Women\s Press, a feminist monthly magazine. Handles creation, deletion, editing, and archiving of publication\'s many contacts, stories, and themes. Capstone group project for Prime Digital Academy.',
-    startDate: DateTime.fromObject({year: 2023, month: 1, day: 1}),
+    startDate: DateTime.fromObject({ year: 2023, month: 1, day: 1 }),
     github: 'https://github.com/pdebuque/MN-Womens-Press-CM',
     deploy: '',
     technologies: [
