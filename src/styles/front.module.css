@@ -36,16 +36,16 @@
 }
 
 .debuque {
-  color: #ffa500;
+  color: #b800b5;
   animation: shiftD 8s infinite;
 }
 
 @keyframes shiftD {
   0%, 100% {
-    color: #ffa500
+    color: #b800b5
   }
   50% {
-    color: #e99700
+    color: #d200cf
   }
 }
 
