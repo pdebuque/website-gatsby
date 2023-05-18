@@ -5,11 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
+import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "../styles/global.css"
+
+
+interface WindowSize {
+  width: number;
+  height: number;
+}
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,6 +28,9 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+
+
 
   return (
     <>

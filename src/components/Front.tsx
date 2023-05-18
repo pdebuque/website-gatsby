@@ -23,7 +23,6 @@ const Front = () => {
       });
     };
 
-    // Add event listener
     window.addEventListener('resize', handleResize);
 
     if (frontRef && frontRef.current) {
@@ -35,7 +34,7 @@ const Front = () => {
         frontRef.current.classList.remove(styles.loadAnimation);
       }
     }
-  })
+  },[])
 
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: typeof window !== 'undefined' ? window.innerWidth : 0,
