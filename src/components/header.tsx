@@ -70,13 +70,20 @@ const Header = ({ siteTitle: any }) => {
             size = {60}
           />
         </Link>
+        <div>
         <Link
           to="/about"
           style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
         >
           about
         </Link>
-
+        <Link
+          to="/resume"
+          style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+        >
+          resume
+        </Link>
+</div>
 
       </div>
 

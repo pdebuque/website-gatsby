@@ -4,20 +4,43 @@ import * as styles from '../styles/front.module.css'
 import Logo from "./logo"
 import { LogoColorsInt, RectInt } from '../model'
 
+
+interface WindowSize {
+  width: number;
+  height: number;
+}
+
 const Front = () => {
 
-const frontRef = useRef<HTMLDivElement>(null);
+  const frontRef = useRef<HTMLDivElement>(null);
 
-useEffect(()=>{
-  if (frontRef && frontRef.current) {
-    frontRef.current.classList.add(styles.loadAnimation);
-  }
-  return () => {
+  useEffect(() => {
+
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
     if (frontRef && frontRef.current) {
-      frontRef.current.classList.remove(styles.loadAnimation);
+      frontRef.current.classList.add(styles.loadAnimation);
     }
-  }
-})
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (frontRef && frontRef.current) {
+        frontRef.current.classList.remove(styles.loadAnimation);
+      }
+    }
+  },[])
+
+  const [windowSize, setWindowSize] = useState<WindowSize>({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+
+  })
 
   const [logoColors, setLogoColors] = useState<LogoColorsInt>({
     skin: '#fff',
@@ -134,12 +157,12 @@ useEffect(()=>{
     ])
   }
 
-  const handleClickCool = () =>{
-    setLogoColors({...logoColors, lens: '#07076080'})
+  const handleClickCool = () => {
+    setLogoColors({ ...logoColors, lens: '#07076080' })
   }
 
   return (
-    <div ref = {frontRef} className={styles.grid}>
+    <div ref={frontRef} className={styles.grid}>
       <div className={styles.text}>
         <h1 className={styles.header}>
           Hello! 👋🏽
@@ -149,21 +172,22 @@ useEffect(()=>{
         <p className={styles.blurb}>
           I am a Filipino/Chinese-American <b>software engineer</b> and <b>musician</b> with a passion for clarity, accessibility, and beauty.
         </p>
-        <p className ={styles.hint}>
+        <p className={styles.hint}>
           {/* (hint: try clicking around on the picture --{">"}) */}
         </p>
-        <div>
+        <div className={styles.links}>
           <a className={styles.link} href="https://github.com/pdebuque" target='_blank'>github</a> | <a className={styles.link} href="mailto:pdebuque@gmail.com">email</a> | <a className={styles.link} href="https://www.linkedin.com/in/paolo-debuque-3aa2667a/" target='_blank'>linkedin</a>
         </div>
 
       </div>
-      <div><Logo
-        SVGWidth={500}
-        logoColors={logoColors}
-        setLogoColors={setLogoColors}
-        rects={rects}
-        setRects={setRects}
-      /></div>
+      <div className={styles.logoContainer}>
+        <Logo
+          SVGWidth={windowSize.width > 768 ? 500 : 250}
+          logoColors={logoColors}
+          setLogoColors={setLogoColors}
+          rects={rects}
+          setRects={setRects}
+        /></div>
     </div>
   )
 }
