@@ -1,0 +1,15 @@
+
+
+.icon:hover {
+  animation: spin .1s ;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(180deg)
+  }
+}
+

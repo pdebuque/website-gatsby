@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 
 import InitialsLogo from "./InitialsLogo"
 import InitialsLogoBW from "./InitialsLogoBW"
+import InitialsLogoBW2 from "./InitialsLogoBW2"
+
 
 const Header = ({ siteTitle: any }) => {
 
@@ -64,7 +66,7 @@ const Header = ({ siteTitle: any }) => {
           to="/"
           style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
         >
-          <InitialsLogoBW
+          <InitialsLogoBW2
             size = {60}
           />
         </Link>
