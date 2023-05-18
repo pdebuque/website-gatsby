@@ -36,7 +36,7 @@ export const codePosts: CodeInt[] = [
   {
     image: gigTreeImg,
     name: 'gig tree',
-    blurb: 'Project creation and management tool for freelance musicians. Solo project from Prime Digital Academy.',
+    blurb: 'Project creation and management tool for freelance musicians.',
     startDate: DateTime.fromObject({ year: 2022, month: 11, day: 30 }),
     github: 'https://github.com/pdebuque/Gig-Tree',
     deploy: 'https://gig-tree.herokuapp.com/',
@@ -53,7 +53,7 @@ export const codePosts: CodeInt[] = [
   {
     image: MNWPImg,
     name: 'MN Women\'s Press Content Manager',
-    blurb: 'Content Manager for MN Women\s Press, a feminist monthly magazine. Handles creation, deletion, editing, and archiving of publication\'s many contacts, stories, and themes. Capstone group project for Prime Digital Academy.',
+    blurb: 'Handles creation, deletion, editing, and archiving of contacts, stories, and themes for a monthly publication.',
     startDate: DateTime.fromObject({ year: 2023, month: 1, day: 1 }),
     github: 'https://github.com/pdebuque/MN-Womens-Press-CM',
     deploy: 'https://github.com/pdebuque/MN-Womens-Press-CM',
