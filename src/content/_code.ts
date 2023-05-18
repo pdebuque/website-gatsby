@@ -3,7 +3,8 @@ import { CodeInt } from "../model";
 import { DateTime } from 'luxon';
 
 import sudokuImg from '../images/code_images/sudoku.png'
-import gigTreeImg from '..images/code_images/gig-tree-img.png'
+import gigTreeImg from '../images/code_images/gig-tree-img.png'
+import MNWPImg from '../images/code_images/MN-womens-press-themes.png'
 
 /* 
 template code:
@@ -50,7 +51,7 @@ export const codePosts: CodeInt[] = [
     ],
   },
   {
-    image: '',
+    image: MNWPImg,
     name: 'MN Women\'s Press Content Manager',
     blurb: 'Content Manager for MN Women\s Press, a feminist monthly magazine. Handles creation, deletion, editing, and archiving of publication\'s many contacts, stories, and themes. Capstone group project for Prime Digital Academy.',
     startDate: DateTime.fromObject({ year: 2023, month: 1, day: 1 }),
