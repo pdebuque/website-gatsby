@@ -32,14 +32,21 @@ const Layout = ({ children }) => {
           // padding: `var(--size-gutter)`,
         }}
       >
+
+
+
         <main style = {{
           
         }}>{children}</main>
+
+
+
         <footer
           style={{
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
-            textAlign: 'center'
+            textAlign: 'center',
+            marginBottom: `12px`
           }}
         >
           © {new Date().getFullYear()} &middot; Paolo Debuque &middot; Built with&nbsp;

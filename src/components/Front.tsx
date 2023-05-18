@@ -136,8 +136,10 @@ const Front = () => {
           I'm <span className={styles.paolo} onClick={handleClickPaolo}>Paolo</span> <span className={styles.debuque} onClick={handleClickDebuque}>Debuque</span>.
         </h1>
         <p className={styles.blurb}>
-          I am a Filipino/Chinese-American <b>software engineer</b> and <b>musician</b> with a passion for clarity, accessibility, and beauty. <span className = {styles.cool} onClick = {handleClickCool}>cool mode</span>
-
+          I am a Filipino/Chinese-American <b>software engineer</b> and <b>musician</b> with a passion for clarity, accessibility, and beauty.
+        </p>
+        <p className ={styles.hint}>
+          {/* (hint: try clicking around on the picture --{">"}) */}
         </p>
         <div>
           <a className={styles.link} href="https://github.com/pdebuque" target='_blank'>github</a> | <a className={styles.link} href="mailto:pdebuque@gmail.com">email</a> | <a className={styles.link} href="https://www.linkedin.com/in/paolo-debuque-3aa2667a/" target='_blank'>linkedin</a>

@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+import InitialsLogo from "./InitialsLogo"
+import InitialsLogoBW from "./InitialsLogoBW"
+
 const Header = ({ siteTitle: any }) => {
 
   const headerStyle = {
@@ -9,13 +12,19 @@ const Header = ({ siteTitle: any }) => {
     display: `flex`,
     alignItems: `center`,
     justifyContent: `space-between`,
+    width: `var(--size-content)`,
+    maxWidth: '1100px'
   };
 
   const linksStyle = {
+    width: '100%',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 
   const linkStyle = {
+    color: 'var(--color-text)',
     margin: '0 8px',
     fontSize: `var(--font-sm)`,
     textDecoration: `none`,
@@ -53,10 +62,20 @@ const Header = ({ siteTitle: any }) => {
         })} */}
         <Link
           to="/"
-          style={{ ...linkStyle, fontWeight: '700' }}
+          style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
         >
-          home
+          <InitialsLogoBW
+            size = {60}
+          />
         </Link>
+        <Link
+          to="/about"
+          style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+        >
+          about
+        </Link>
+
+
       </div>
 
 

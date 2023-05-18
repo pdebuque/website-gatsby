@@ -55,48 +55,6 @@
   margin-bottom: 0;
 }
 
-.reminder {
-  height: 10vh;
-  opacity: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  /* left: 50%; */
-  right: 45%;
-  bottom: 0%;
- 
-}
-
-.reminder p {
-  text-align: center;
-  display: inline;
-  margin: 0 auto 4px;
-}
-
-.arrowLink {
-  text-decoration: none;
-}
-
-.arrowLink:hover {
-  background-color: rgba(0,0,0,.2)
-}
-
-.arrow{
-   animation: bounce 3s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { 
-    transform: translateY(0);
-  }
-  50% { 
-    transform: translateY(-10px);
-  }
-}
-
-
 
 .codeGrid {
   display: grid;
@@ -116,21 +74,4 @@
 .main {
   margin-bottom: 3rem;
   background-color: white;
-}
-
-.projectContainer {
-  margin: .5rem;
-  display: grid;
-  grid-template-columns: 1fr 2fr 8fr;
-}
-
-.hint {
-  font-style: italic;
-  font-size: 15px;
-}
-
-.projectList {
-  grid-column: 2/-1;
-  display: grid;
-  grid-template-columns: 1fr 30px 7fr 4fr ;
 }
