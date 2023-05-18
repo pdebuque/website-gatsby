@@ -1,11 +1,20 @@
 import React from 'react'
 
-const InitialsLogo = () => {
+type Props = {
+  size: number;
+}
+
+const InitialsLogo: React.FC<Props> = (props) => {
+
+const {
+  size
+} = props
+
   return (
     <svg 
     xmlns="http://www.w3.org/2000/svg"  
-    width="70" 
-    height="70" 
+    width={size} 
+    height={size} 
     zoomAndPan="magnify" 
     viewBox="0 0 375 375" 
     preserveAspectRatio="xMidYMid meet" 

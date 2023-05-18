@@ -17,7 +17,10 @@ const Header = ({ siteTitle: any }) => {
   };
 
   const linksStyle = {
+    width: '100%',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 
   const linkStyle = {
@@ -59,7 +62,7 @@ const Header = ({ siteTitle: any }) => {
         })} */}
         <Link
           to="/"
-          style={{ ...linkStyle, fontWeight: '700' }}
+          style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
         >
           <InitialsLogoBW
             size = {60}
@@ -67,7 +70,7 @@ const Header = ({ siteTitle: any }) => {
         </Link>
         <Link
           to="/about"
-          style={{ ...linkStyle, fontWeight: '700' }}
+          style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
         >
           about
         </Link>
