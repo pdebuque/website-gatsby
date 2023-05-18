@@ -3,6 +3,7 @@ import { CodeInt } from "../model";
 import { DateTime } from 'luxon';
 
 import sudokuImg from '../images/code_images/sudoku.png'
+import gigTreeImg from '..images/code_images/gig-tree-img.png'
 
 /* 
 template code:
@@ -32,7 +33,7 @@ export const codePosts: CodeInt[] = [
     ]
   },
   {
-    image: '',
+    image: gigTreeImg,
     name: 'gig tree',
     blurb: 'Project creation and management tool for freelance musicians. Solo project from Prime Digital Academy.',
     startDate: DateTime.fromObject({ year: 2022, month: 11, day: 30 }),
@@ -54,7 +55,7 @@ export const codePosts: CodeInt[] = [
     blurb: 'Content Manager for MN Women\s Press, a feminist monthly magazine. Handles creation, deletion, editing, and archiving of publication\'s many contacts, stories, and themes. Capstone group project for Prime Digital Academy.',
     startDate: DateTime.fromObject({ year: 2023, month: 1, day: 1 }),
     github: 'https://github.com/pdebuque/MN-Womens-Press-CM',
-    deploy: '',
+    deploy: 'https://github.com/pdebuque/MN-Womens-Press-CM',
     technologies: [
       'html/css/js',
       'react',

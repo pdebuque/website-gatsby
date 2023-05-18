@@ -56,7 +56,27 @@
 }
 
 
+.projects{
+  /* background-color: rgb(222, 222, 253); */
+  width: 100vw;
+  height: 100vh;
+}
+
+.projectsContent {
+  width: 80vw;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.projects h2 {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-weight: 300;
+  font-size: 40px;
+}
+
 .codeGrid {
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
   gap: 1rem
