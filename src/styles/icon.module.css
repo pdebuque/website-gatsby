@@ -1,7 +1,7 @@
 
 
 .icon:hover {
-  animation: spin .1s ;
+  animation: spin .15s ;
 }
 
 @keyframes spin {
