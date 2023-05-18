@@ -1,12 +1,23 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 import * as styles from '../styles/front.module.css'
 import Logo from "./logo"
 import { LogoColorsInt, RectInt } from '../model'
 
-
-
 const Front = () => {
+
+const frontRef = useRef<HTMLDivElement>(null);
+
+useEffect(()=>{
+  if (frontRef && frontRef.current) {
+    frontRef.current.classList.add(styles.loadAnimation);
+  }
+  return () => {
+    if (frontRef && frontRef.current) {
+      frontRef.current.classList.remove(styles.loadAnimation);
+    }
+  }
+})
 
   const [logoColors, setLogoColors] = useState<LogoColorsInt>({
     skin: '#fff',
@@ -128,7 +139,7 @@ const Front = () => {
   }
 
   return (
-    <div className={styles.grid}>
+    <div ref = {frontRef} className={styles.grid}>
       <div className={styles.text}>
         <h1 className={styles.header}>
           Hello! 👋🏽

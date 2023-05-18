@@ -5,6 +5,21 @@
   max-width: 1100px
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loadAnimation {
+  animation: fadeInUp .5s ease-out;
+}
+
 @media (min-width: 768px) {
   .grid{
     grid-template-columns: 3fr 1fr;
@@ -23,7 +38,7 @@
 }
 .paolo {
   color: #043488;
-  animation: shiftP 5s infinite; 
+  animation: shiftP 3s infinite; 
 }
 
 @keyframes shiftP {
@@ -31,7 +46,7 @@
     color: #043488
   }
   50% {
-    color: #004ed4
+    color: #0051dc
   }
 }
 

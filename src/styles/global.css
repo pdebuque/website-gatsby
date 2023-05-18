@@ -57,7 +57,7 @@ body {
 }
 
 main {
-  width: calc(var(--size-content));
+  /* width: calc(var(--size-content)); */
   margin: auto;
   padding-bottom: var(--space-4);
   display: grid;

@@ -98,10 +98,14 @@
 .techList {
   overflow-x: scroll;
   white-space: nowrap;
+  overflow-y: scroll;
+  height: calc(100%+10px)
 }
 
 .techList::-webkit-scrollbar {
-  background: transparent
+  background: transparent;
+  width: 10px;
+  height: 10px;
 }
 
 .techList::-webkit-scrollbar-corner {
