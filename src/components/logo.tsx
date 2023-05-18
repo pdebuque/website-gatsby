@@ -206,7 +206,7 @@ return (
     <svg version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       width={SVGWidth}
-      viewBox={`0 0 500 500`}
+      viewBox={`0 20 500 500`}
       preserveAspectRatio="xMidYMid meet"
       fill="#000"
       onMouseEnter={() => setMouseIn(true)}

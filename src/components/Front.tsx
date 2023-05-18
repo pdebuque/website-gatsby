@@ -183,7 +183,7 @@ const Front = () => {
       </div>
       <div className={styles.logoContainer}>
         <Logo
-          SVGWidth={windowSize.width > 768 ? 500 : 300}
+          SVGWidth={windowSize.width > 768 ? 500 : 250}
           logoColors={logoColors}
           setLogoColors={setLogoColors}
           rects={rects}
