@@ -43,3 +43,10 @@ export interface MusicInt {
   flyer: string;
   recordings: string[];
 }
+
+export interface Fact {
+  title: string;
+  text: string;
+  emoji1: string;
+  emoji2: string;
+}

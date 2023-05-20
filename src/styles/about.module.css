@@ -2,5 +2,71 @@
   width: 80vw;
   margin: auto;
   max-width: 1100px;
-  height: 100vh;
+}
+
+.front {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.paoloContainer {
+  display: flex;
+  align-items: center;
+}
+
+
+.paolo {
+  width: 100%;
+  min-width: 350px;
+}
+
+.text {
+  margin-bottom: 2rem;
+}
+
+.text h1 {
+  font-size: 32px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text h3 {
+  font-weight: 400;
+}
+
+.text p {
+  font-weight: 300;
+}
+
+
+.facts {
+  margin-top: 2rem;
+}
+
+.facts h2 {
+  font-weight: 400;
+}
+
+.factGrid {
+  width: 90%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .front {
+    grid-template-columns: 1fr 2fr;
+  }
+
+
+  .text {
+    margin-top: 2rem;
+  }
+
+  .factGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

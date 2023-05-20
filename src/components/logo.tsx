@@ -14,6 +14,8 @@ type props = {
   setLogoColors: React.Dispatch<React.SetStateAction<LogoColorsInt>>;
   rects: RectInt[];
   setRects: React.Dispatch<React.SetStateAction<RectInt[]>>;
+  idle: boolean;
+  setIdle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Logo = (props:props) => {
@@ -23,8 +25,11 @@ const Logo = (props:props) => {
     logoColors,
     setLogoColors,
     rects,
-    setRects
+    setRects,
+    idle,
+    setIdle
 } = props
+
 
 // let window = useWindowSize();
 // console.log(window)
@@ -51,63 +56,32 @@ const Logo = (props:props) => {
 // })
 
 const eyeD = 3; // constant for magnitude of eye movements
-const [clickMeOn, setClickMeOn] = useState<boolean>(false)
+
+// const [clickMeOn, setClickMeOn] = useState<boolean>(false) 
 const [svgMousePos, setSvgMousePos] = useState({ x: 0, y: 0 })
 const [eyeAdjLeft, setEyeAdjLeft] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
 const [eyeAdjRight, setEyeAdjRight] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
 const [mouseIn, setMouseIn] = useState<boolean>(false)
 
-const [idle, setIdle] = useState<boolean>(false)
 
-// setTimeout(()=>{
-//   setIdle(true);
-// }, 3000)
 
 const handleFaceClick = () => {
   // console.log('clicked face')
   setLogoColors({ ...logoColors, frame: randomDarkColor() })
-  setClickMeOn(false)
+  // setClickMeOn(false)
 }
 
 const handleShirtClick = () => {
   setLogoColors({ ...logoColors, shirt: randomDarkColor(), trim: randomDarkColor() })
-  setClickMeOn(false)
+  // setClickMeOn(false)
 }
-
-//* =================== rectangle controls ====================== *//
-// const [rects, setRects] = useState<RectInt[]>([
-//   {
-//     id: 1,
-//     x: 40,
-//     y: 40,
-//     width: 220,
-//     height: 280,
-//     color: '#c8c8c8'
-//   },
-//   {
-//     id: 2,
-//     x: 70,
-//     y: 200,
-//     width: 360,
-//     height: 230,
-//     color: '#ddd'
-//   },
-//   {
-//     id: 3,
-//     x: 260,
-//     y: 100,
-//     width: 200,
-//     height: 250,
-//     color: '#eee'
-//   },
-// ])
 
 const handleRectClick = (id: number) => {
   // console.log('click')
   const rectToChange = rects.filter(rect => rect.id === id)[0];
   rectToChange.color = randomLightColor();
   setRects([...rects.filter(rect => rect.id != id), rectToChange].sort((a, b) => a.id - b.id))
-  setClickMeOn(false)
+  setIdle(false)
 }
 
 const handleMouseMove = (e: React.MouseEvent) => {
@@ -263,7 +237,6 @@ return (
       <LogoControls logoColors={logoColors} setLogoColors={setLogoColors} rects={rects} setRects={setRects} />
       <circle cx='250' cy='270' r='215' fill='none' stroke={logoColors.frame} strokeWidth='10' />
 
-
       <g mask='url(#bg-mask)'>
         {rects.map(rect => {
           return (
@@ -275,8 +248,8 @@ return (
               fill={rect.color}
               stroke='none'
               onClick={() => handleRectClick(rect.id)}
-              className = {idle ? styles.idle: ''}
-            />
+              className = {idle && styles[`idle${rect.id}`]}
+            >{rect.id}</rect>
           )
         })}
       </g>
@@ -410,10 +383,10 @@ return (
 
 
       </g>
-      <g className={clickMeOn ? 'svg-on' : 'svg-off'} opacity={clickMeOn ? '0%' : '100%'} transform='translate(102,450)'>
+      {/* <g className='svg-on'  opacity={clickMeOn ? '0%' : '100%'} transform='translate(102,450)'>
         <rect transform='translate(-10, -70)' width='315' height='100' fill='#C0EFFA '></rect>
         <text x='0' y='0' >(click me!)</text>
-      </g>
+      </g> */}
     </svg>
 
   </div>

@@ -16,6 +16,10 @@ const Front = () => {
 
   useEffect(() => {
 
+    setTimeout(() => {
+      setIdle(true);
+    }, 3000)
+
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
@@ -34,13 +38,15 @@ const Front = () => {
         frontRef.current.classList.remove(styles.loadAnimation);
       }
     }
-  },[])
+  }, [])
 
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: typeof window !== 'undefined' ? window.innerWidth : 0,
     height: typeof window !== 'undefined' ? window.innerHeight : 0,
 
   })
+
+  const [idle, setIdle] = useState<boolean>(false);
 
   const [logoColors, setLogoColors] = useState<LogoColorsInt>({
     skin: '#fff',
@@ -82,6 +88,7 @@ const Front = () => {
 
   const handleClickPaolo = () => {
     // console.log('paolo')
+    setIdle(false);
     setLogoColors({
       skin: '#fff',
       lens: '#ffffff',
@@ -120,6 +127,7 @@ const Front = () => {
   }
 
   const handleClickDebuque = () => {
+    setIdle(false);
     setLogoColors({
       skin: '#fff',
       lens: '#fff',
@@ -187,6 +195,8 @@ const Front = () => {
           setLogoColors={setLogoColors}
           rects={rects}
           setRects={setRects}
+          idle={idle}
+          setIdle={setIdle}
         /></div>
     </div>
   )
