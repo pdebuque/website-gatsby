@@ -17,8 +17,9 @@
 
 
 .paolo {
-  width: 100%;
-  min-width: 350px;
+  width: 50%;
+  margin:auto;
+  min-width: 250px;
 }
 
 .text {
@@ -26,17 +27,20 @@
 }
 
 .text h1 {
-  font-size: 32px;
+  font-size: 40px;
   line-height: 1.4;
   font-weight: 400;
+  text-align: center;
 }
 
 .text h3 {
   font-weight: 400;
+  text-align: center;
 }
 
 .text p {
   font-weight: 300;
+  text-align: justify;
 }
 
 
@@ -46,6 +50,8 @@
 
 .facts h2 {
   font-weight: 400;
+  width: 90%;
+  margin: auto;
 }
 
 .factGrid {
@@ -61,9 +67,21 @@
     grid-template-columns: 1fr 2fr;
   }
 
+  .paolo {
+    width: 100%;
+    min-width: 350px;
+  }
 
   .text {
     margin-top: 2rem;
+  }
+
+  .text h1 {
+    text-align: left;
+  }
+
+  .text h3 {
+    text-align: left;
   }
 
   .factGrid {
