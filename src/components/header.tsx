@@ -7,6 +7,8 @@ import InitialsLogoBW2 from "./InitialsLogoBW2"
 
 import * as styles from '../styles/header.module.css'
 
+// import resume from '../../public/static/resume.pdf'
+
 
 const Header = ({ siteTitle: any }) => {
 
@@ -81,14 +83,14 @@ const Header = ({ siteTitle: any }) => {
         >
           about
         </Link>
-        <Link
-          to="/resume"
+        <a
+          href="/resume.pdf"
           // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
           className = {styles.textLink}
-
+          target='_blank'
         >
           resume
-        </Link>
+        </a>
 </div>
 
       </div>
