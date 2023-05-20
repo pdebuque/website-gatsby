@@ -42,27 +42,31 @@ const About = () => {
     <Layout>
       <div className={styles.about}>
         <section className={styles.front}>
-          <div className = {styles.paoloContainer}>
+          <div className={styles.frontGrid}>
+            {/* <div className = {styles.paoloContainer}> */}
             <img className={styles.paolo} src={paoloImg} alt="image of Paolo" />
-          </div>
-          <div className={styles.text}>
-            <h1>
-              Thank you for visiting my website!
-            </h1>
+            {/* </div> */}
+            {/* <div className = {styles.textContainer}> */}
+            <div className={styles.text}>
+              <h1>
+                Thank you for visiting my website!
+              </h1>
 
-            <h3>
-              I hope it's given you a satisfactory peek into my work and values as a developer.
-            </h3>
+              <h3>
+                I hope it's given you a satisfactory peek into my work and values as a developer.
+              </h3>
 
-            <p>
-              As the role of technology continues to expand in our lives, it becomes ever more important to value human-centered design and thinking.
-            </p>
-            <p>Questions like <i>“Who is using this?,” “How can this technology be made meaningful?,”</i> and perhaps most pressing, <i>“What could happen if we’re not careful?”</i> are always buzzing in my mind, and I find the process of answering them through developmental iteration incredibly interesting and satisfying.
-            </p>
-            <p>
-              Please do <a href="mailto: pdebque@gmail.com" className = {styles.emailLink}>reach out!</a> I always enjoy connecting with and learning from interesting people 😊
-            </p>
+              <p>
+                As the role of technology continues to expand in our lives, it becomes ever more important to value human-centered design and thinking.
+              </p>
+              <p>Questions like <i>“Who is using this?,” “How can this technology be made meaningful?,”</i> and perhaps most pressing, <i>“What could happen if we’re not careful?”</i> are always buzzing in my mind, and I find the process of answering them through developmental iteration incredibly interesting and satisfying.
+              </p>
+              <p>
+                Please do <a href="mailto: pdebque@gmail.com" className={styles.emailLink}>reach out!</a> I always enjoy connecting with and learning from interesting people 😊
+              </p>
+            </div>
           </div>
+          {/* </div> */}
         </section>
         <hr />
         <section className={styles.facts}>

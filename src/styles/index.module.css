@@ -51,8 +51,8 @@
 
 */
 .front {
-  height: 95vh;
-  margin-bottom: 0;
+  /* min-height: 95vh; */
+  margin-bottom: 5rem;
 }
 
 

@@ -5,9 +5,12 @@
 }
 
 .front {
+  min-height: 80vh;
+}
+
+.frontGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
 }
 
 .paoloContainer {
@@ -20,6 +23,11 @@
   width: 50%;
   margin:auto;
   min-width: 250px;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
 }
 
 .text {
@@ -102,8 +110,9 @@
 }
 
 @media (min-width: 768px) {
-  .front {
+  .frontGrid {
     grid-template-columns: 1fr 2fr;
+    gap: 4rem;
   }
 
   .paolo {
@@ -125,5 +134,17 @@
 
   .factGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .frontGrid {
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 1260px) {
+  .frontGrid {
+    padding-top: 7rem;
   }
 }
