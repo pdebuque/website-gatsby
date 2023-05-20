@@ -1,0 +1,30 @@
+.imgLink {
+  margin-left: 1rem;
+  line-height: 0;
+}
+
+.textLink {
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--color-text);
+  margin: 0px 8px;
+  display: inline-block;
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.textLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transition: width .3s ease;
+}
+
+.textLink:hover::after {
+  width: 100%;
+}
