@@ -2,5 +2,149 @@
   width: 80vw;
   margin: auto;
   max-width: 1100px;
-  height: 100vh;
+}
+
+.front {
+  min-height: 80vh;
+}
+
+.frontGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.paoloContainer {
+  display: flex;
+  align-items: center;
+}
+
+
+.paolo {
+  width: 50%;
+  margin:auto;
+  min-width: 250px;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-bottom: 2rem;
+}
+
+.text h1 {
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 400;
+  text-align: center;
+}
+
+.text h3 {
+  font-weight: 400;
+  text-align: center;
+}
+
+.text p {
+  font-weight: 300;
+  text-align: justify;
+}
+
+.emailLink {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: rgb(36, 36, 253)
+}
+
+.emailLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(31, 0, 186);
+  transition: width .2s ease;
+}
+
+
+.emailLink:hover::after {
+  width: 100%;
+}
+
+/* .emailLink:hover {
+  color: rgb(107, 95, 246);
+  transition: color .1s ease;
+  animation: bob 2s infinite;
+  display: inline-block;
+} */
+/* 
+@keyframes bob {
+  0%, 100% {
+    transform: none;
+  }
+  50%{
+    transform: translateY(-1px);
+  }
+
+} */
+
+.facts {
+  margin-top: 2rem;
+}
+
+.facts h2 {
+  font-weight: 400;
+  width: 90%;
+  margin: auto;
+}
+
+.factGrid {
+  width: 90%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .frontGrid {
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+  }
+
+  .paolo {
+    width: 100%;
+    min-width: 350px;
+  }
+
+  .text {
+    margin-top: 2rem;
+  }
+
+  .text h1 {
+    text-align: left;
+  }
+
+  .text h3 {
+    text-align: left;
+  }
+
+  .factGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .frontGrid {
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 1260px) {
+  .frontGrid {
+    padding-top: 7rem;
+  }
 }

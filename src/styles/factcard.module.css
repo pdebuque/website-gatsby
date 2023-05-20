@@ -1,0 +1,57 @@
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.cardHover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 49, 0.2);
+  transition: transform .3s ease;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+}
+
+.emoji {
+  display: inline-block;
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.emojiHover {
+  animation: bob 3s infinite;
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: none;
+  }
+  30% {
+    transform: translateX(5px) rotate(20deg);
+  }
+
+  70%{
+    transform: translateX(-5px) rotate(-20deg);
+  }
+}
+
+.title {
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+}
+
+.text {
+  font-weight: 300;
+  margin: 1rem;
+}
+/* 
+.footer {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+} */

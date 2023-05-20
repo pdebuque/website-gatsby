@@ -8,7 +8,7 @@
   position: fixed;
   /* left: 50%; */
   right: 45%;
-  bottom: 0%;
+  bottom: 20%;
   transition: opacity .3s;
   cursor: pointer;
 }

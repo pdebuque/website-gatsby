@@ -5,6 +5,10 @@ import InitialsLogo from "./InitialsLogo"
 import InitialsLogoBW from "./InitialsLogoBW"
 import InitialsLogoBW2 from "./InitialsLogoBW2"
 
+import * as styles from '../styles/header.module.css'
+
+// import resume from '../../public/static/resume.pdf'
+
 
 const Header = ({ siteTitle: any }) => {
 
@@ -25,13 +29,13 @@ const Header = ({ siteTitle: any }) => {
     justifyContent: 'space-between'
   }
 
-  const linkStyle = {
-    color: 'var(--color-text)',
-    margin: '0 8px',
-    fontSize: `var(--font-sm)`,
-    textDecoration: `none`,
-    fontWeight: 300,
-  }
+  // const linkStyle = {
+  //   color: 'var(--color-text)',
+  //   margin: '0 8px',
+  //   fontSize: `var(--font-sm)`,
+  //   textDecoration: `none`,
+  //   fontWeight: 300,
+  // }
 
   // const links = [
   //   {
@@ -64,7 +68,8 @@ const Header = ({ siteTitle: any }) => {
         })} */}
         <Link
           to="/"
-          style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
+          className = {styles.imgLink}
+          // style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
         >
           <InitialsLogoBW2
             size = {60}
@@ -73,16 +78,19 @@ const Header = ({ siteTitle: any }) => {
         <div>
         <Link
           to="/about"
-          style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+          // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+          className = {styles.textLink}
         >
           about
         </Link>
-        <Link
-          to="/resume"
-          style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+        <a
+          href="/resume.pdf"
+          // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+          className = {styles.textLink}
+          target='_blank'
         >
           resume
-        </Link>
+        </a>
 </div>
 
       </div>

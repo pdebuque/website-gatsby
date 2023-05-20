@@ -1,3 +1,45 @@
-.idle {
-  background-color: blue;
+.idle1 {
+  animation: swirl1 20s infinite;
+} 
+
+.idle2{
+  animation: swirl2 21s infinite;
 }
+
+.idle3{
+  animation: swirl3 19s infinite;
+}
+
+@keyframes swirl1 {
+
+  0%,
+  100% {
+    fill: '#c8c8c8'
+  }
+  50% {
+    fill: rgb(186, 255, 192)
+  }
+}
+
+@keyframes swirl2 {
+
+  0%,
+  100% {
+    fill: '#ddd'
+  }
+  50% {
+    fill: rgb(223, 255, 186)
+  }
+}
+@keyframes swirl3 {
+
+  0%,
+  100% {
+    fill: '#eee'
+  }
+  50% {
+    fill: rgb(186, 255, 235)
+  }
+}
+
+

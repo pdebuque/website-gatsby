@@ -49,7 +49,7 @@ const IndexPage = () => {
       <section className={styles.front}>
         <Front />
 
-        <ScrollArrow />
+        {/* <ScrollArrow /> */}
         {/* {arrowShow && 
         <a className = {styles.arrowLink} href="">
           <div className={styles.reminder}>
