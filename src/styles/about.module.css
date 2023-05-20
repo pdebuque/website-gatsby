@@ -43,6 +43,26 @@
   text-align: justify;
 }
 
+.emailLink {
+  text-decoration: none;
+}
+
+.emailLink:hover {
+  color: rgb(107, 95, 246);
+  transition: color .1s ease;
+  animation: bob 2s infinite;
+  display: inline-block;
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: none;
+  }
+  50%{
+    transform: translateY(-1px);
+  }
+
+}
 
 .facts {
   margin-top: 2rem;

@@ -60,7 +60,7 @@ const About = () => {
             <p>Questions like <i>“Who is using this?,” “How can this technology be made meaningful?,”</i> and perhaps most pressing, <i>“What could happen if we’re not careful?”</i> are always buzzing in my mind, and I find the process of answering them through developmental iteration incredibly interesting and satisfying.
             </p>
             <p>
-              Please do reach out! I always enjoy connecting with and learning from interesting people 😊
+              Please do <a href="mailto: pdebque@gmail.com" className = {styles.emailLink}>reach out!</a> I always enjoy connecting with and learning from interesting people 😊
             </p>
           </div>
         </section>
