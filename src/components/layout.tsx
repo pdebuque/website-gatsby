@@ -5,7 +5,8 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import React, {useState, useEffect, useRef} from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -17,8 +18,20 @@ interface WindowSize {
   height: number;
 }
 
+type Props = {
+  children: any,
+  pageTitle: string;
+  pageDescription: string;
+}
 
-const Layout = ({ children }) => {
+const Layout: React.FC<Props> = (props) => {
+
+  const {
+    children,
+    pageTitle,
+    pageDescription
+  } = props
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -34,6 +47,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription}/>
+      </Helmet>
       <Header siteTitle="Paolo" />
       <div
         style={{
@@ -45,8 +62,8 @@ const Layout = ({ children }) => {
 
 
 
-        <main style = {{
-          
+        <main style={{
+
         }}>{children}</main>
 
 

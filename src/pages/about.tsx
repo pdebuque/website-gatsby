@@ -39,7 +39,10 @@ const About = () => {
 
 
   return (
-    <Layout>
+    <Layout
+      pageTitle='About'
+      pageDescription='About Me'
+    >
       <div className={styles.about}>
         <section className={styles.front}>
           <div className={styles.frontGrid}>
