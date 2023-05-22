@@ -17,7 +17,6 @@
   width: 90%;
 }
 
-
 .card {
   /* border: 2px solid rgb(0, 0, 99); */
   width: 90%;
@@ -54,11 +53,9 @@
   opacity: 1;
 }
 
-
 .card:hover {
   box-shadow: 6px 8px 2px 1px rgba(0, 0, 49, 0.2);
   transform: translate(-2px, -2px) scale(1.01);
-
 }
 
 /* .card p {
@@ -87,12 +84,17 @@
 
 .cardTitle {
   color: white;
-
+  margin: 0px !important; 
 }
 
 .cardBlurb {
   color: white;
   font-weight: 300;
+}
+
+.cardFooter {
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
 .techList {
