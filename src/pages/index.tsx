@@ -44,7 +44,9 @@ const IndexPage = () => {
 
   return (
 
-    <Layout>
+    <Layout
+      pageTitle='Home'
+      pageDescription="Paolo Debuque's personal dev portfolio">
       {/* <> */}
       <section className={styles.front}>
         <Front />
