@@ -83,7 +83,7 @@ const Header = ({ siteTitle: any }) => {
         >
           about
         </Link>
-        <a
+        {/* <a
           href='/resume.pdf'
           // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
           className = {styles.textLink}
@@ -91,7 +91,7 @@ const Header = ({ siteTitle: any }) => {
           rel="noopener noreferrer"
         >
           resume
-        </a>
+        </a> */}
 </div>
 
       </div>
