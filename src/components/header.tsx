@@ -84,7 +84,7 @@ const Header = ({ siteTitle: any }) => {
           about
         </Link>
         <a
-          href="/static/resume.pdf"
+          href="/resume.pdf"
           // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
           className = {styles.textLink}
           target='_blank'
