@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import InitialsLogo from "./InitialsLogo"
-import InitialsLogoBW from "./InitialsLogoBW"
+// import InitialsLogo from "./InitialsLogo"
+// import InitialsLogoBW from "./InitialsLogoBW"
 import InitialsLogoBW2 from "./InitialsLogoBW2"
 
 import * as styles from '../styles/header.module.css'
@@ -84,10 +84,11 @@ const Header = ({ siteTitle: any }) => {
           about
         </Link>
         <a
-          href="/resume.pdf"
+          href="/static/resume.pdf"
           // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
           className = {styles.textLink}
           target='_blank'
+          rel="noopener noreferrer"
         >
           resume
         </a>

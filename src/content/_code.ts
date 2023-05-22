@@ -52,7 +52,7 @@ export const codePosts: CodeInt[] = [
   },
   {
     image: MNWPImg,
-    name: 'MN Women\'s Press Content Manager',
+    name: 'MN Women\'s Press',
     blurb: 'Handles creation, deletion, editing, and archiving of contacts, stories, and themes for a monthly publication.',
     startDate: DateTime.fromObject({ year: 2023, month: 1, day: 1 }),
     github: 'https://github.com/pdebuque/MN-Womens-Press-CM',
