@@ -11,20 +11,20 @@ const About = () => {
 
   const aboutFacts: Fact[] = [
     {
-      title: 'Extroverted ',
+      title: ' Extroverted ',
       text: 'A recent and happy discovery! <p>There are few things I love more than learning about people through authentic connection.</p>',
       emoji1: '🥳',
       emoji2: '🤗',
     },
     {
       title: ' Musician ',
-      text: 'I am a classically trained tenor with a masters degree in Choral Conducting from the University of Michigan. I maintain an active freelance performing career in the Twin Cities.',
+      text: 'I am a classically trained tenor with a masters degree in Choral Conducting from the University of Michigan. I maintain an active freelance performing career in the Twin Cities. Music website (hopefully) to come!',
       emoji1: '🎶',
       emoji2: '🎹',
     },
     {
       title: ' Systems Thinker ',
-      text: 'I excel in synthesizing large- and small-scale processes.',
+      text: 'I love working with structures and systems, and parsing out the many deep connections between large- and small-scale processes. It\'s been satisfying to find many parallels in this way of thinking between music and software.',
       emoji1: '🧑🏽‍💻',
       emoji2: '🤔',
     },
