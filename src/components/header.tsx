@@ -7,7 +7,7 @@ import InitialsLogoBW2 from "./InitialsLogoBW2"
 
 import * as styles from '../styles/header.module.css'
 
-import resume from '../../public/static/resume.pdf'
+import resume from '../../public/resume.pdf'
 
 
 const Header = ({ siteTitle: any }) => {
