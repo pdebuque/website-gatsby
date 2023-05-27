@@ -68,22 +68,22 @@ const Header = ({ siteTitle: any }) => {
         })} */}
         <Link
           to="/"
-          className = {styles.imgLink}
-          // style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
+          className={styles.imgLink}
+        // style={{ ...linkStyle, fontWeight: '700', lineHeight: 0, marginLeft: '1rem' }}
         >
           <InitialsLogoBW2
-            size = {60}
+            size={60}
           />
         </Link>
         <div>
-        <Link
-          to="/about"
-          // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
-          className = {styles.textLink}
-        >
-          about
-        </Link>
-        {/* <a
+          <Link
+            to="/about"
+            // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
+            className={styles.textLink}
+          >
+            about
+          </Link>
+          {/* <a
           href='/resume.pdf'
           // style={{ ...linkStyle, fontWeight: '300', fontSize: '16px', marginRight: '2rem' }}
           className = {styles.textLink}
@@ -92,7 +92,7 @@ const Header = ({ siteTitle: any }) => {
         >
           resume
         </a> */}
-</div>
+        </div>
 
       </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '../components/layout'
 import FactCard from '../components/FactCard'
 
@@ -8,6 +8,20 @@ import { Fact } from '../model'
 import paoloImg from '../images/approachable-paolo.png'
 
 const About = () => {
+
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(()=>{
+    if (gridRef && gridRef.current) {
+      gridRef.current.classList.add(styles.loadAnimation);
+    }
+    return () => {
+      if (gridRef && gridRef.current) {
+        gridRef.current.classList.remove(styles.loadAnimation);
+      }
+    }
+  },[])
+
 
   const aboutFacts: Fact[] = [
     {
@@ -45,7 +59,7 @@ const About = () => {
     >
       <div className={styles.about}>
         <section className={styles.front}>
-          <div className={styles.frontGrid}>
+          <div className={styles.frontGrid} ref={gridRef}>
             {/* <div className = {styles.paoloContainer}> */}
             <img className={styles.paolo} src={paoloImg} alt="image of Paolo" />
             {/* </div> */}
@@ -56,7 +70,7 @@ const About = () => {
               </h1>
 
               <h3>
-                I hope it's given you a satisfactory peek into my work and values as a developer.
+                I hope it's given you a glimpse into my work and values as a developer.
               </h3>
 
               <p>
