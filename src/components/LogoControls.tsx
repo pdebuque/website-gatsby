@@ -57,8 +57,8 @@ const LogoControls = (props: Props) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       >
-      hello
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam necessitatibus consectetur sequi! Sunt enim inventore corrupti nobis, animi omnis deserunt suscipit recusandae ducimus perspiciatis cupiditate voluptatum. Incidunt, velit laborum? Quam?
+      {/* hello
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam necessitatibus consectetur sequi! Sunt enim inventore corrupti nobis, animi omnis deserunt suscipit recusandae ducimus perspiciatis cupiditate voluptatum. Incidunt, velit laborum? Quam? */}
 
 
     </div>
