@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
+import LazyLoad from 'react-lazy-load';
 
 import * as styles from '../styles/front.module.css'
 import Logo from "./logo"
@@ -188,16 +189,19 @@ const Front = () => {
         </div>
 
       </div>
-      <div className={styles.logoContainer}>
-        <Logo
-          SVGWidth={windowSize.width > 768 ? 500 : 250}
-          logoColors={logoColors}
-          setLogoColors={setLogoColors}
-          rects={rects}
-          setRects={setRects}
-          idle={idle}
-          setIdle={setIdle}
-        /></div>
+      <LazyLoad>
+        <div className={styles.logoContainer}>
+          <Logo
+            SVGWidth={windowSize.width > 768 ? 500 : 250}
+            logoColors={logoColors}
+            setLogoColors={setLogoColors}
+            rects={rects}
+            setRects={setRects}
+            idle={idle}
+            setIdle={setIdle}
+          />
+        </div>
+      </LazyLoad>
     </div>
   )
 }
